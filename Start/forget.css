@@ -1,0 +1,42 @@
+
+
+p {
+  /*width: 1000px;*/
+  border-bottom: solid 5px #000;
+  }
+
+/* html,body{
+margin:0;
+padding:0;
+}
+*/
+
+table{
+width:100%;
+border:0;
+}
+
+body{
+ margin:0;            /* ←追加 */
+}
+
+
+#title{
+ margin:0;            /* ←追加 */
+}
+
+button.button3 {
+    /* 文字サイズを1.4emに指定 */
+    font-size: 1.4em;
+    /* 文字の太さをboldに指定 */
+    font-weight: bold;
+    /* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+    /* 背景色を濃い青色に指定 */
+    background-color: #32cd32;
+    /* 文字色を白色に指定 */
+    color: #fff;
+    /* ボーダーをなくす */
+    border-style: none;
+}
