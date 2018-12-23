@@ -1,0 +1,30 @@
+<html>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="Mitame.css">
+  <br/>
+  <h3 class = "title">
+    ユーザ情報の変更をしました</h3>
+
+  <br />
+  <div align = "center">
+    <div style="float:left;width:45%;" align = "right">
+      ユーザ名:<br /><br /><br />
+       パスワード:
+    </div>
+
+    <div style="float:left;width:10%;">
+      　<!--ここ全角スペース-->
+    </div>
+
+    <div align = "left" style="float:left;width:45%;">
+      リレメモ <br /><br /><br />
+       変更なし
+    </div>
+    <div style="clear:both;"></div>
+    
+    <br /><br />
+    <input type= "button" value = "ホームへ戻る" onclick = " location.href = 'Main.html' " id = "button">
+    　　　
+   
+
+</html>
