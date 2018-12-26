@@ -1,0 +1,29 @@
+/* 各項目を全て横に並べる */
+.header_place{
+    float: left;
+}
+
+/* ロゴアイコンの大きさと位置 */
+#rogo_icon_size{
+    height: 4cm;
+    width: 4cm;
+    /* 表示位置の固定 */
+    top: -50px;
+    left: -10px;
+    position: relative;
+}
+
+/* 検索の位置 */
+.search_size{
+    top: 30px;
+    position: relative;
+}
+
+/* 設定アイコンの大きさと位置 */
+#setting_icon_size{
+    height: 2cm;
+    width: 2cm;
+    /* 表示位置の固定 
+    top: -10px;
+    position: relative;*/
+}
