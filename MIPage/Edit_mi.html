@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>管理情報登録画面</title>
+        <title>管理情報編集画面</title>
         <meta charset="UTF8">
         <style>
           .container {
@@ -21,20 +21,18 @@
               width: 70%; /*右カラム幅設定*/
               float: right;
             }
-
-          input#submit{ /*閉じるボタン*/
-                padding: 0px 20px;
-                background-color: rgba(255,255,255,1);
-                color: #000;
-                border-color: rgba(0,0,0,1);
-          }
-          input#close{ /*閉じるボタン*/
-              padding: 0px 20px;
-              background-color: rgba(200,0,0,1);
-              color: #fff;
-              border-color: rgba(255,0,0,1);
-          }
-
+            input#submit{ /*閉じるボタン*/
+                  padding: 0px 20px;
+                  background-color: rgba(255,255,255,1);
+                  color: #000;
+                  border-color: rgba(0,0,0,1);
+            }
+            input#close{ /*閉じるボタン*/
+                padding: 0px 10px;
+                background-color: rgba(200,0,0,1);
+                color: #fff;
+                border-color: rgba(255,0,0,1);
+            }
         </style>
     </head>
 
@@ -52,20 +50,20 @@
             　　　　　　姓　　　　　　名
             <br>
             名　　前　　
-          <input type = "text" style = "width:100px;">
-          <input type = "text" style = "width:100px;">
+          <input type = "text" style = "width:100px;" value = 名前>
+          <input type = "text" style = "width:100px;" value = 氏名>
           </p>
 
           <p class = "namef">
             フリガナ　　
-          <input type = "text" style = "width:100px;">
-          <input type = "text" style = "width:100px;">
+          <input type = "text" style = "width:100px;" value = ナマエ>
+          <input type = "text" style = "width:100px;" value = 氏名>
           </p>
 
           <p class ="sex">
             性　　別　　
           <input type = "radio" name = "sex" value = "女性">女性
-          <input type = "radio" name = "sex" value = "男性">男性
+          <input type = "radio" name = "sex" value = "男性" checked>男性
           <input type = "radio" name = "sex" value = "その他">その他<br>
           </p>
 
@@ -163,7 +161,7 @@
               <option value="1987">1987(昭和62年)</option>
               <option value="1988">1988(昭和63年)</option>
               <option value="1989">1989(平成元年)</option>
-              <option value="1990">1990(平成2年)</option>
+              <option value="1990" selected>1990(平成2年)</option>
               <option value="1991">1991(平成3年)</option>
               <option value="1992">1992(平成4年)</option>
               <option value="1993">1993(平成5年)</option>
@@ -205,14 +203,14 @@
               <option value="7">7</option>
               <option value="8">8</option>
               <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="10" selected>10</option>
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
             月
             <select name = "day">
               <option value="">--</option>
-              <option value="1">1</option>
+              <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -251,7 +249,7 @@
             関　　係　　
             <select name = "select">
             <option value = "">--</option>
-            <option value = "取引先">取引先</option>
+            <option value = "取引先" selected>取引先</option>
             <option value = "上司">上司</option>
             <option value = "友達">友達</option>
             </select>
@@ -259,12 +257,12 @@
 
           <p class = "hobby">
             趣　　味　　
-            <input type = "text" style = "width:115px;">
+            <input type = "text" style = "width:115px;" value = ゴルフ>
           </p>
 
           <p class = "feature">
             特　　徴　　
-            <input type = "text" style = "width:115px;">
+            <input type = "text" style = "width:115px;" value = メガネ>
           </p>
 
           <p class = "metday">
@@ -389,7 +387,7 @@
               <option value="2015">2015(平成27年)</option>
               <option value="2016">2016(平成28年)</option>
               <option value="2017">2017(平成29年)</option>
-              <option value="2018">2018(平成30年)</option>
+              <option value="2018" selected>2018(平成30年)</option>
             </select>
             年
             <select name = "month">
@@ -401,7 +399,7 @@
               <option value="5">5</option>
               <option value="6">6</option>
               <option value="7">7</option>
-              <option value="8">8</option>
+              <option value="8" selected>8</option>
               <option value="9">9</option>
               <option value="10">10</option>
               <option value="11">11</option>
@@ -419,7 +417,7 @@
               <option value="7">7</option>
               <option value="8">8</option>
               <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="10" selected>10</option>
               <option value="11">11</option>
               <option value="12">12</option>
               <option value="13">13</option>
@@ -447,7 +445,7 @@
 
           <p class = "metplace">
             出会った場所
-            <input type = "text" style = "width:115px;">
+            <input type = "text" style = "width:115px;" value = 〇〇公園>
           </p>
 
           <p class = "businesscardO">
@@ -462,11 +460,13 @@
 
           <p class = "freespace">
             フリースペース<br>
-            <TEXTAREA cols = "60%" rows = "5"></TEXTAREA
+            <textarea cols = "60%" rows = "5" >日本酒好き、そばアレルギー、etc...
+            </textarea>
           </p>
 
           <p class = "button">
             <input type = "button" value = "登録" id = "submit">
+            <input type = "button" value = "キャンセル" id = "close">
             <input type = "button" value = "閉じる" id = "submit">
           </p>
       </div>
