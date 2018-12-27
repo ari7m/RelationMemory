@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>管理情報編集画面</title>
+        <meta charset="UTF8">
+        <style>
+          .container {
+              width: 1000px; /*必要な幅に設定*/
+              margin: auto; /*ブラウザ中央に配置*/
+            }
+            .container:after { /*clearfix設定*/
+              content:"";
+              display:block;
+              clear:both;
+            }
+          .left_wrap {
+              width: 30%; /*左カラム幅設定*/
+              float: left;
+            }
+            .right_wrap {
+              width: 70%; /*右カラム幅設定*/
+              float: right;
+            }
+            input#submit{ /*閉じるボタン*/
+                  padding: 0px 20px;
+                  background-color: rgba(255,255,255,1);
+                  color: #000;
+                  border-color: rgba(0,0,0,1);
+            }
+            input#close{ /*閉じるボタン*/
+                padding: 0px 10px;
+                background-color: rgba(200,0,0,1);
+                color: #fff;
+                border-color: rgba(255,0,0,1);
+            }
+        </style>
+    </head>
+
+    <body>
+    <div class="container"> <!--コンテナ用divで囲む-->
+      <div class="left_wrap">
+        <p class = "businesscardU">
+          顔写真<br>
+          <img src="./kao.png" width = 150px>
+        </p>
+        </div>
+      <div class="right_wrap">
+          <p class = "name">
+            <font size = 1>
+　　　　　　　　　　　 ナマエ　　シメイ
+            <br>
+            <font size = 3>
+            名　　前　　　名前　氏名
+          </p>
+
+          <p class ="sex">
+            性　　別　　　男性
+          </p>
+
+          <p class = "birthday">
+            生年月日　　　1990(平成2年)年10月1日
+          </p>
+
+          <p class = "relation">
+            関　　係　　　取引先
+          </p>
+
+          <p class = "hobby">
+            趣　　味　　　ゴルフ
+          </p>
+
+          <p class = "feature">
+            特　　徴　　　メガネ
+          </p>
+
+          <p class = "metday">
+            出会った日　　2018(平成30年)年8月10日
+          </p>
+
+          <p class = "metplace">
+            出会った場所　〇〇公園
+          </p>
+
+          <p class = "businesscardO">
+            名刺(表)<br><img src="./meisiomote.png" width = 250px border = 2>
+          </p>
+
+          <p class = "businesscardU">
+            名刺(裏)<br><img src="./meisiura.png" width = 250px border = 2>
+          </p>
+
+          <p class = "freespace">
+            フリースペース<br>
+            <textarea cols = "60%" rows = "5" >日本酒好き、そばアレルギー、etc...
+            </textarea>
+          </p>
+
+          <p class = "button">
+            <input type = "button" value = "編集" id = "submit">
+            <input type = "button" value = "閉じる" id = "submit">
+          </p>
+      </div>
+    </body>
+
+</html>
