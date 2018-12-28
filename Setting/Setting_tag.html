@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        link rel="stylesheet" type="text/css" href="Mitame.css">
+        <link rel="stylesheet" type="text/css" href="Mitame.css">
         <title>
             タグ設定
         </title>
-        <script type="text/javascript" src="test.js"></script>
+        <script type="text/javascript" src="Setting_tag.js"></script>
     </head>
     <body>
         <h2 class = "title">
@@ -25,7 +25,24 @@
 
             <div align = "left" style="float:left;width:55%;" id = "tag" data-cnt = "3">
             </div>
-            <input type = "button" value = "追加" onclick = "CreateForm()" />
+            <input type = "button" value = "追加" onclick = "CreateForm()" align = "center"/>
+            <div style="clear:both;"></div>
+        </div>
+        <br /><br />
+        <div align = "center">
+            <div style="float:left;width:35%;" align = "right">
+                <b>
+                    表示項目
+                </b>
+            </div>
+
+            <div style="float:left;width:10%;">
+                &nbsp;
+            </div>
+
+            <div align = "left" style="float:left;width:55%;" id = "item" data-cnt = "3">
+            </div>
+            <input type = "button" value = "追加" onclick = "CreateForm()"  align = "center"/>
             <div style="clear:both;"></div>
         </div>
     </body>

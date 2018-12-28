@@ -13,16 +13,11 @@ var num = function() {
 // 最初に表示される分(title属性の値の数だけ表示)
 window.onload = function() {
     // const cnt = document.getElementById("tag").title;
-    const id = document.getElementById('tag');
-    const cnt = id.getAttribute('data-cnt');
+    const tag = document.getElementById('tag');
+    const item = document.getElementById("item")
+    const cnt = tag.getAttribute('data-cnt');
     for (var i = 0; i < cnt; i++) {
         CreateForm();
-        if (i == 0) {
-            id.removeChild(id.firstChild);
-            id.removeChild(id.firstChild);
-            id.removeChild(id.firstChild);
-            id.removeChild(id.lastChild);
-        }
     }
 }
 // form作成する分
@@ -31,20 +26,22 @@ function CreateForm() {
     const input = document.createElement("input");
     const button = document.createElement("input");
     var N = num();
-    // formの属性設定
+    // formの属性設定、描画
     input.setAttribute("type", "text");
     input.setAttribute("value", N);
     input.setAttribute("id", "input" + N);
-    // buttonの属性設定
-    button.setAttribute("type", "button");
-    button.setAttribute("value", "削除");
-    button.setAttribute("onclick", "RemoveForm(" + N + ")");
-    button.setAttribute("id", "button" + N);
-    // 描画
-    id.appendChild(document.createElement("br"));
-    id.appendChild(document.createElement("br"));
     id.appendChild(input);
-    id.appendChild(button);
+    // buttonの属性設定、描画
+    if (N != 1 && N != id.getAttribute('data-cnt') + 1) {
+        button.setAttribute("type", "button");
+        button.setAttribute("value", "削除");
+        button.setAttribute("onclick", "RemoveForm(" + N + ")");
+        button.setAttribute("id", "button" + N);
+        id.appendChild(button);
+    }
+    // 空白
+    id.appendChild(document.createElement("br"));
+    id.appendChild(document.createElement("br"));
 }
 // form消す分
 function RemoveForm(a) {
