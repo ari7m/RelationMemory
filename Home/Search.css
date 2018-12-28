@@ -47,7 +47,7 @@
 }
 
 
-/*矢印を反対にする。できない！！！！！！！！！*/
+/*矢印を反対*/
 .cssacc:checked + label:after{
     content:'\f0d8';
 }
