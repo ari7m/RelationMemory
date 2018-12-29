@@ -1,31 +1,69 @@
+/* -----ヘッダーの固定化----- */
+#site_header{
+    background: #fff;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    /*
+    padding: 60px 20px;
+    width: 100%;
+    /*/
+}
 
-
-/* 各項目を全て横に並べる */
+/* ------各項目を全て横に並べる----- /*/
 .header_place{
     float: left;
 }
 
-/* ロゴアイコンの大きさと位置 */
+/* -----検索方法----- */
+.inf_icon{
+    height: 0.5cm;
+    widows: 0.5cm;
+
+    top: 18px;
+    left: 120px;
+    position: relative;
+}
+
+/* -----共有ボタン----- */
+input#share_button{
+    /* ボタンの大きさ */
+    font-size: 40px;
+
+    /* ボタンの色 */
+    background: #99ff66;
+
+    /* 表示位置 /*/
+    top: 10px;
+    left: 550px;
+    position: relative;
+}
+
+/* -----ロゴアイコンの大きさと位置----- */
 #rogo_icon_size{
     height: 4cm;
     width: 4cm;
+
     /* 表示位置の固定 */
     top: -50px;
     left: -10px;
     position: relative;
 }
 
-/* 検索の位置 */
+/* -----検索の位置----- */
 .search_size{
     top: 30px;
+    left: 100px;
     position: relative;
 }
 
-/* 設定アイコンの大きさと位置 */
+/* -----設定アイコンの大きさと位置----- */
 #setting_icon_size{
     height: 2cm;
     width: 2cm;
-    /* 表示位置の固定 
+
+    /* 表示位置の固定 */
     top: -10px;
-    position: relative;*/
+    left: 750px;
+    position: relative;
 }

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head id = "site_header">
         <meta charset = "UTF8">
         <link rel = "stylesheet" type = "text/css" href = "../Home/header.css">
-    </head>
-    <body>
         <!-- アイコンをクリックするとメインページにジャンプする処理 -->
         <span class = "header_place">
             <p>
@@ -25,13 +23,13 @@
         <!-- インフォメーション。マウスイベント(アイコンに触れるまたはクリックする)で検索の仕方を表示 -->
         <span class = "header_place">
             <p>
-                i
+                <img src = "../Image/info_icon.png" alt = "i" class = "inf_icon">
             </p>
         </span>
 
         <!-- 共有をクリックで共有モジュールへジャンプ -->
         <span class = "header_place">
-            <p>共有</p>
+            <input type = "button" name = "share" value = "共有" onclick="location.href='Share.html'" id = "share_button">
         </span>
 
         <!-- 設定。歯車マークにマウスカーソルを合わせるまたはクリックで設定メニューを表示 -->
@@ -40,5 +38,5 @@
                 <img src = "../Image/setting.png" alt = "設定" id = "setting_icon_size">
             </p>
         </span>
-    </body>
+    </head>
 </html>
