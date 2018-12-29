@@ -4,39 +4,49 @@
         <meta charset = "UTF8">
         <link rel = "stylesheet" type = "text/css" href = "../Home/header.css">
         <!-- アイコンをクリックするとメインページにジャンプする処理 -->
-        <span class = "header_place">
+        <div class = "header_place">
             <p>
                 <a href = "../Template.html">
                     <img src = "../Image/rogo.png" alt = "オオカミとマカロン" id = "rogo_icon_size">
                 </a>
             </p>
-        </span>
+        </div>
 
         <!-- 検索フォーム -->
-        <span class = "header_place">
+        <div class = "header_place">
             <form method = "post">
                 <input type = "search" name = "search" placeholder = "キーワードを入力" class = "search_size" size="30">
                 <input type = "submit" name = "submit" value = "検索" class = "search_size">
             </form>
-        </span>
+        </div>
 
         <!-- インフォメーション。マウスイベント(アイコンに触れるまたはクリックする)で検索の仕方を表示 -->
-        <span class = "header_place">
-            <p>
+        <div class = "header_place msg">
+            <a href = "#">
                 <img src = "../Image/info_icon.png" alt = "i" class = "inf_icon">
-            </p>
-        </span>
+                <span class = "infometion">
+                    <b>検索のヒント</b></br>
+                    <i>A or B</i></br>
+                    AまたはBを含む結果の表示</br>
+                    </br>
+                    <i>-A</i></br>
+                    Aを含まない結果の表示</br>
+                    </pre>
+                </span>
+            </a>
+        </div>
 
         <!-- 共有をクリックで共有モジュールへジャンプ -->
-        <span class = "header_place">
+        <div class = "header_place">
             <input type = "button" name = "share" value = "共有" onclick="location.href='Share.html'" id = "share_button">
-        </span>
+        </div>
 
         <!-- 設定。歯車マークにマウスカーソルを合わせるまたはクリックで設定メニューを表示 -->
-        <span class = "header_place">
+        <div class = "header_place">
             <p>
                 <img src = "../Image/setting.png" alt = "設定" id = "setting_icon_size">
             </p>
-        </span>
+        </div>
     </head>
+    <body></body>
 </html>
