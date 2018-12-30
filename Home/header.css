@@ -85,8 +85,9 @@ input#share_button{
     position: relative;
 }
 
-/* -----設定アイコンの大きさと位置----- */
-#setting_icon_size{
+/* -----設定アイコン----- */
+/* アイコンの編集 */
+#setting_icon{
     height: 2cm;
     width: 2cm;
 
@@ -95,8 +96,14 @@ input#share_button{
     left: 750px;
     position: relative;
 }
-/* テスト用。表示部分の黒塗り /*
+
+#menue{
+    display: none;
+}
+
+
+/* テスト用。表示部分の黒塗り /*/
 body{
     background: black;
 }
-*/
+/*/
