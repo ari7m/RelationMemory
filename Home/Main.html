@@ -5,33 +5,51 @@
   </head>
 
   <body>
-    <div class="id_1" style="float:left">
-    <image src="image.png" class="image">
-      <button class="button" type="submit" onclick="location.href='read.html'">有薗 里奈</button>
-    </div>
-    <div class="id_2" style="float:left">
+    <form action="cgi-bin/example.cgi" method="post">
+      <div class="sortbox">
+	<input type="checkbox" class="sort">
+	<label>ならびかえ</label>
+	<div class="sortshow">
+	  <input type="button" onclick="location.href='Sort_name.html'" id="namesort">名前</button>
+	  <input type="button" onclick="location.href='Sort_name.html'" id="agesort">年齢</button>
+	  <input type="button" onclick="location.href='Sort_name.html'" id="datesort">出会った日</button>
+	  <input type="button" onclick="location.href='Sort_name.html'" id="updatesort">最終更新</button>
+	  </div>
+      </div>
+    </form>
+    <div class="main" id="id_1">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'">伊藤 佑樹</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'">有薗 里奈</button>
     </div>
-    <div class="id_1" style="float:left">
+    <div class="main" id="id_2">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'"> 河野 雄也</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'">伊藤 佑樹</button>
     </div>
-    <div class="id_2" style="float:left">
+    <div class="main" id="id_3">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'"> 高橋 慎也</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'">河野 雄也</button>
     </div>
-    <div class="id_1" style="float:left">
+    <div class="main" id="id_4">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'"> 南部 美希奈</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'"> 高橋 慎也</button>
     </div>
-    <div class="id_2" style="float:left">
+    <div class="main" id="id_5">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'">引本 匡磨</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'"> 南部 美希奈</button>
     </div>
-    <div class="id_1" style="float:left">
+    <div class="main" id="id_6">
       <image src="image.png" class="image">
-	<button class="button" type="submit" onclick="location.href='read.html'">堀　 彩華</button>
+	<button class="button" type="submit" onclick="location.href='Reading.html'">引本 匡磨</button>
     </div>
+    <div class="main" id="id_7">
+      <image src="image.png" class="image">
+	<button class="button" type="submit" onclick="location.href='Reading.html'">堀　 彩華</button>
+    </div>
+    <button class="create" onclick="location.href='/MIPage/Create_mi.html'">
+      <img src="plus.png" class="plus">
+    </button>
+    <button type="button" class="tag" id="alltag" onclick="location.href='Main.html'"> 全て</button>
+    <button type="button" class="tag" id="tag1" onclick="location.href='Main_tag.html'">ソフ工</button>
+    <button type="button" class="tag" id="tag2" onclick="location.href='Main_tag.html'">上司</button>
   </body>
 </html>
