@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head id = "site_header">
+        <meta charset = "UTF8">
+        <link rel = "stylesheet" type = "text/css" href = "../Home/header.css">
+        <script src = "../Home/header.js"></script>
+        <!-- アイコンをクリックするとメインページにジャンプする処理 -->
+        <div class = "header_place">
+            <p>
+                <a href = "../Template.html">
+                    <img src = "../Image/rogo.png" alt = "オオカミとマカロン" id = "rogo_icon_size">
+                </a>
+            </p>
+        </div>
+
+        <!-- 検索フォーム -->
+        <div class = "header_place">
+            <form method = "post">
+                <input type = "search" name = "search" placeholder = "キーワードを入力" class = "search_size" size="30">
+                <input type = "submit" name = "submit" value = "検索" class = "search_size">
+            </form>
+        </div>
+
+        <!-- インフォメーション。マウスイベント(アイコンに触れるまたはクリックする)で検索の仕方を表示 -->
+        <div class = "header_place msg">
+            <a href = "#">
+                <img src = "../Image/info_icon.png" alt = "i" class = "inf_icon">
+                <span class = "infometion">
+                    <b>検索のヒント</b></br>
+                    <i>A or B</i></br>
+                    AまたはBを含む結果の表示</br>
+                    </br>
+                    <i>-A</i></br>
+                    Aを含まない結果の表示</br>
+                    </pre>
+                </span>
+            </a>
+        </div>
+
+        <!-- 共有をクリックで共有モジュールへジャンプ -->
+        <div class = "header_place">
+            <input type = "button" name = "share" value = "共有" onclick="location.href='Share.html'" id = "share_button">
+        </div>
+
+        <!-- 設定。歯車マークにマウスカーソルを合わせるまたはクリックで設定メニューを表示 -->
+        <div class = "header_place set_men">
+                <a href = "../Setting">
+                    <img src = "/Users/rinaari/github/RelationMemory/Image/setting.png" alt = "設定" id = "setting_icon" ><!--onmouseover="on_icon();"-->
+                    <span id = "menue">
+                        ユーザ情報の設定</br>
+                        登録情報の設定</br>
+                        ログアウト
+                    </span>
+                </a>
+            </div>
+    </head>
+    <body></body>
+</html>

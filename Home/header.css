@@ -1,0 +1,121 @@
+/* -----ヘッダーの固定化----- /*/
+#site_header{
+    background: #fff;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    
+    padding: 60px 20px;
+    width: 100%;
+    
+}
+
+/* ------各項目を全て横に並べる----- /*/
+.header_place{
+    float: left;
+}
+
+/* -----検索方法----- */
+/* インフォメーションマークの表示 */
+.inf_icon{
+    height: 0.5cm;
+    widows: 0.5cm;
+
+    top: 35px;
+    left: 120px;
+    position: relative;
+}
+/* 吹き出しの設定 */
+.msg{
+    position: relative;
+}
+.msg span.infometion{
+    /* span.infometion を表示しない */
+    display: none;
+}
+/* アイコンにカーソルが合わさった時に表示 */
+.msg a:hover span.infometion{
+    /* 吹き出しの色 */
+    background: none repeat scroll 0 0 #FFCC66;
+    /* 縁の色と太さ /*
+    border: 1px solid #CCCCCC;
+    /* 文字の色 */
+    color: red;
+    /* 吹き出しの形 */
+    display: block;
+    /* 吹き出しの大きさとか行間とか */
+    line-height: 0.5cm;
+    margin: 1cm;
+    padding: 0.5cm;
+    /* 引き出しの出現位置 */
+    position: absolute;
+    top: 50px;
+    width: 12em;
+}
+
+/* -----共有ボタン----- */
+input#share_button{
+    /* ボタンの大きさ */
+    font-size: 40px;
+
+    /* ボタンの色 */
+    background: #99ff66;
+
+    /* 表示位置 /*/
+    top: 10px;
+    left: 550px;
+    position: relative;
+}
+
+/* -----ロゴアイコンの大きさと位置----- */
+#rogo_icon_size{
+    height: 4cm;
+    width: 4cm;
+
+    /* 表示位置の固定 */
+    top: -50px;
+    left: -10px;
+    position: relative;
+}
+
+/* -----検索の位置----- */
+.search_size{
+    top: 30px;
+    left: 100px;
+    position: relative;
+}
+
+/* -----設定アイコン----- */
+/* アイコンの編集 */
+#setting_icon{
+    height: 2cm;
+    width: 2cm;
+
+    /* 表示位置の固定 */
+    top: 10px;
+    left: 750px;
+    position: relative;
+}
+
+#menue{
+    display: none;
+}
+
+.set_men a:hover span#menue{
+
+    background: gray;
+
+    display: block;
+    widows: 5cm;
+    height: 5cm;
+
+    left: 700px;
+    position: relative;
+} 
+
+
+/* テスト用。表示部分の黒塗り /*/
+body{
+    background: black;
+}
+/*/

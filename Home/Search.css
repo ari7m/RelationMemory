@@ -1,0 +1,72 @@
+body{
+    margin:0 0 0 0;
+}
+
+/*ボックス全体*/
+.accbox{
+    margin: 0 0;
+    padding: 0;
+}
+
+
+/*ラベル*/
+.accbox label {
+    display: block;
+    margin: 0 0;
+    padding:5px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.1s;
+    border: solid 1px #000000;
+    box-sizing:border-box;
+}
+
+/*アイコンを表示*/
+.accbox label:after{
+    content:'\f0d7';
+    font-family:'Font Awesome 5 free';
+    padding-left: 175px;
+}
+
+/*チェックを隠す*/
+.accbox input[id="day"], [id="age"],[id="birthday"],[id="blood"] {
+    display: none;
+}
+/*中身を非表示にしておく*/
+.accbox .accshow{
+    height:0; 
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+
+/*クリックで中身を表示*/
+.cssacc:checked + label + .accshow{
+    height: auto;
+    padding: 5px;
+    opacity:1;
+    border: solid 1px #000000; 
+}
+
+
+/*矢印を反対*/
+.cssacc:checked + label:after{
+    content:'\f0d8';
+}
+
+#lsearch {
+    background:#FFFF66;
+    border:solid 1px #000000;
+    cursor:pointer;
+    
+}
+
+.search {
+    z-index:1500;
+    position:fixed;
+    left:40%;
+    bottom:3%;
+    
+}
