@@ -1,15 +1,19 @@
+body{
+    margin:0 0 0 0;
+}
+
 /*ボックス全体*/
 .accbox{
     margin: 0 0;
     padding: 0;
-    max-width:400px;
 }
+
 
 /*ラベル*/
 .accbox label {
     display: block;
     margin: 0 0;
-    padding : 13px 12px;
+    padding:5px 12px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.1s;
@@ -21,7 +25,7 @@
 .accbox label:after{
     content:'\f0d7';
     font-family:'Font Awesome 5 free';
-    padding-left: 280px;
+    padding-left: 175px;
 }
 
 /*チェックを隠す*/
@@ -52,3 +56,17 @@
     content:'\f0d8';
 }
 
+#lsearch {
+    background:#FFFF66;
+    border:solid 1px #000000;
+    cursor:pointer;
+    
+}
+
+.search {
+    z-index:1500;
+    position:fixed;
+    left:40%;
+    bottom:3%;
+    
+}
