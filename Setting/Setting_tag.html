@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="Mitame.css">
+        <title>
+            タグ設定
+        </title>
+        <script type="text/javascript" src="Setting_tag.js"></script>
+    </head>
+    <body>
+        <h2 class = "title">
+            登録情報設定
+        </h2>
+        <div align = "center">
+            <div style="float:left;width:35%;" align = "right">
+                <b>
+                    タグ
+                </b>
+            </div>
+
+            <div style="float:left;width:10%;">
+                &nbsp;
+            </div>
+
+            <div align = "left" style="float:left;width:55%;" id = "tag" data-cntTag = "3">
+            </div>
+            <input type = "button" value = "追加" onclick = "CreateForm('tag')" align = "center"/>
+            <div style="clear:both;"></div>
+        </div>
+        <br /><br />
+        <div align = "center">
+            <div style="float:left;width:35%;" align = "right">
+                <b>
+                    表示項目
+                </b>
+            </div>
+
+            <div style="float:left;width:10%;">
+                &nbsp;
+            </div>
+
+            <div align = "left" style="float:left;width:55%;" id = "item" data-cntItem = "3">
+            </div>
+            <input type = "button" value = "追加" onclick = "CreateForm('item')"  align = "center"/>
+            <div style="clear:both;"></div>
+        </div>
+    </body>
+</html>
