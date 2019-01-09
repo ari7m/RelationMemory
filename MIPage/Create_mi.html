@@ -69,6 +69,25 @@
           <input type = "radio" name = "sex" value = "その他">その他<br>
           </p>
 
+	  <p class ="blood-type">
+	    血液型
+          <INPUT type="radio" name="rad" value="1" onClick="check_reset(this,1)">A型
+          <INPUT type="radio" name="rad" value="2" onClick="check_reset(this,2)">B型
+          <INPUT type="radio" name="rad" value="3" onClick="check_reset(this,3)">AB型
+          <INPUT type="radio" name="rad" value="4" onClick="check_reset(this,4)">O型<br>
+          <script type="text/javascript">
+          var sel = 0;
+          function check_reset(mod,num){
+            if(sel == num){
+              mod.checked = false;
+              sel = 0;
+            }else{
+              sel = num;
+            }
+          }
+
+          </script>
+	  
           <p class = "birthday">
             生年月日　　
             <select name = "select">
