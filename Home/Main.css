@@ -2,6 +2,113 @@ body {
     margin:0 0 0 0;
 }
 
+.container {
+              width: 1000px; /*必要な幅に設定*/
+              margin: auto; /*ブラウザ中央に配置*/
+            }
+            .container:after { /*clearfix設定*/
+              content:"";
+              display:block;
+              clear:both;
+            }
+          .left_wrap {
+              width: 100%; /*左カラム幅設定*/
+              float: left;
+            }
+
+.main {
+    margin-left:25px;
+    margin-right:25px;
+}
+
+.image {
+    width: 60px;
+    height: 60px;
+    border: solid 2px #000000;
+    box-sizing:border-box;
+    margin:15px;
+    margin-right:0;
+    margin-left:40px;
+    float: left;
+}
+
+.button{
+    font-size:125%;
+    font-weight:bold;
+    padding:0.20em 0.4em;
+    width: 200px;
+    height: 60px;
+    margin: 15px;
+    margin-right: 40px;
+    margin-left: 0;
+    border-right: solid 2px #000000;
+    border-top: solid 2px #000000;
+    border-bottom: solid 2px #000000;
+    border-left:none;
+    box-sizing:border-box;
+    background-color: #FFFFFF;
+    cursor:pointer;
+}
+
+.main{
+    float:left;
+    
+}
+.create{
+    z-index:1500;
+    position:fixed;
+    bottom:50px;
+    right:50px;
+    width:40px;
+    height:40px;
+    background:#FF3333;
+    border:1px solid #FF3333;
+    -webkit-border-radius:70px;
+    cursor:pointer;
+}
+.plus{
+    width:26px;
+    height:26px;
+}
+
+.tag{
+    z-index:1500;
+    position:fixed;
+    bottom:0px;
+    height:20px;
+    width:150px;
+    cursor:pointer;
+    -webkit-border-radius:0px 10px 0px 0px;
+    border:2px solid #000000;
+}
+
+
+#alltag{
+    left:0px;
+    height:30px;
+    background:#FFCC00;
+}
+
+#tag1{
+    left:155px;
+    background:#00CC00;
+}
+
+#tag2{
+    left:310px;
+    background:#0066CC;
+}
+
+#id_1{
+    margin-top:50px;
+}
+#id_2{
+    margin-top:50px;
+}
+body {
+    margin:0 0 0 0;
+}
+
 .main {
     margin-left:25px;
     margin-right:25px;
