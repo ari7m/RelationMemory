@@ -1,18 +1,59 @@
 /* -----ヘッダーの固定化----- /*/
 #site_header{
     background: #fff;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
     display: flex;
     position: fixed;
     justify-content: space-between;
-    
+
     padding: 60px 20px;
     width: 100%;
-    
+
 }
+
 
 /* ------各項目を全て横に並べる----- /*/
 .header_place{
     float: left;
+}
+
+/*------検索フォーム------*/
+/*フォーム全体*/
+#form1{
+    position:relative;/*フォームの相対位置*/
+    max-width:270px;/*フォームのサイズ*/
+    margin-bottom:15px;/*フォームの下に余白*/
+}
+/*検索ボックス*/
+#sbox{
+    position:absolute;/*フォームの絶対位置*/
+    top:35px;
+    outline:0;/*クリック時の青い枠線消す*/
+    height:30px;/*検索ボックスの高さ*/
+    padding:0 10px;/*テキスト位置調整*/
+    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/
+    background:#eee;/*検索ボックスの背景カラー*/
+}
+/*検索ボタン*/
+#sbtn{
+    width:70px;/*検索ボタンの横幅*/
+    height:33px;/*検索ボタンの縦幅*/
+    position:absolute;/*検索ボタンの絶対位置*/
+    left:360px;/*検索ボタンの位置調整*/
+    top:35px;
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+    background:#7fbfff;/*検索ボタンの背景カラー*/
+    border:none;/*検索ボタンの枠線を消す*/
+    color:#fff;/*検索ボタンのテキストカラー*/
+    font-weight:bold;/*検索ボタンのテキスト太字*/
+    font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+    color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
 /* -----検索方法----- */
@@ -22,12 +63,12 @@
     widows: 0.5cm;
 
     top: 35px;
-    left: 120px;
+    left: 430px;
     position: relative;
 }
 /* 吹き出しの設定 */
 .msg{
-    position: relative;
+    position: absolute;
 }
 .msg span.infometion{
     /* span.infometion を表示しない */
@@ -56,15 +97,17 @@
 /* -----共有ボタン----- */
 input#share_button{
     /* ボタンの大きさ */
-    font-size: 40px;
+    font-size: 20px;
+    padding: 10px 20px;
 
     /* ボタンの色 */
     background: #99ff66;
+    border-radius: 15px;
 
     /* 表示位置 /*/
-    top: 10px;
-    left: 550px;
-    position: relative;
+    top: 24px;
+    right:120px;
+    position: absolute;
 }
 
 /* -----ロゴアイコンの大きさと位置----- */
@@ -78,23 +121,18 @@ input#share_button{
     position: relative;
 }
 
-/* -----検索の位置----- */
-.search_size{
-    top: 30px;
-    left: 100px;
-    position: relative;
-}
+
 
 /* -----設定アイコン----- */
 /* アイコンの編集 */
 #setting_icon{
-    height: 2cm;
-    width: 2cm;
+    height: 50px;
+    width: 50px;
 
     /* 表示位置の固定 */
-    top: 10px;
-    left: 750px;
-    position: relative;
+    top: 24px;
+    right: 40px;
+    position: absolute;
 }
 
 #menue{
@@ -102,20 +140,21 @@ input#share_button{
 }
 
 .set_men a:hover span#menue{
-
+    position: fixed;
     background: gray;
 
     display: block;
     widows: 5cm;
-    height: 5cm;
+    height: 100px;
 
-    left: 700px;
-    position: relative;
-} 
+    right: 0;
+    position: absolute;
+}
 
 
 /* テスト用。表示部分の黒塗り /*/
 body{
     background: black;
+    overflow: hidden;
 }
 /*/
