@@ -1,17 +1,13 @@
 /* -----ヘッダーの固定化----- /*/
 #site_header{
-    background: #fff;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    position: fixed;
     justify-content: space-between;
-
     padding: 60px 20px;
     width: 100%;
-
 }
 
 
@@ -20,50 +16,66 @@
     float: left;
 }
 
+.container {
+    width: 1200px; /*必要な幅に設定*/
+    margin: auto; /*ブラウザ中央に配置*/
+  }
+
+/* -----ロゴアイコンの大きさと位置----- */
+#rogo_icon_size{
+    height: 5cm;
+    width: 5cm;
+    /* 表示位置の固定 */
+    top: -150px;
+    left: 0px;
+    position: relative;
+}
+
+
 /*------検索フォーム------*/
 /*フォーム全体*/
-#form1{
-    position:relative;/*フォームの相対位置*/
+#form{
+    position:absolute;/*フォームの相対位置*/
     max-width:270px;/*フォームのサイズ*/
     margin-bottom:15px;/*フォームの下に余白*/
 }
 /*検索ボックス*/
 #sbox{
     position:absolute;/*フォームの絶対位置*/
-    top:35px;
+    top:-50px;
     outline:0;/*クリック時の青い枠線消す*/
     height:30px;/*検索ボックスの高さ*/
     padding:0 10px;/*テキスト位置調整*/
-    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/
+    border-radius:10px 10px 10px 10px;/*検索ボックスの角を丸める*/
     background:#eee;/*検索ボックスの背景カラー*/
 }
 /*検索ボタン*/
 #sbtn{
     width:70px;/*検索ボタンの横幅*/
-    height:33px;/*検索ボタンの縦幅*/
+    height:35px;/*検索ボタンの縦幅*/
     position:absolute;/*検索ボタンの絶対位置*/
-    left:360px;/*検索ボタンの位置調整*/
-    top:35px;
-    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+    left:200px;/*検索ボタンの位置調整*/
+    top:-51px;
+    border-radius:10px 10px 10px 10px;/*検索ボタンの角を丸める*/
     background:#7fbfff;/*検索ボタンの背景カラー*/
     border:none;/*検索ボタンの枠線を消す*/
     color:#fff;/*検索ボタンのテキストカラー*/
     font-weight:bold;/*検索ボタンのテキスト太字*/
-    font-size:16px;/*検索ボタンのフォントサイズ*/
+    font-size:20px;/*検索ボタンのフォントサイズ*/
 }
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
     color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
+
 /* -----検索方法----- */
 /* インフォメーションマークの表示 */
 .inf_icon{
-    height: 0.5cm;
-    widows: 0.5cm;
-
-    top: 35px;
-    left: 430px;
+    height: 0.8cm;
+    widows: 0.8cm;
+    top: -48px;
+    left: 465px;
     position: relative;
 }
 /* 吹き出しの設定 */
@@ -77,50 +89,51 @@
 /* アイコンにカーソルが合わさった時に表示 */
 .msg a:hover span.infometion{
     /* 吹き出しの色 */
-    background: none repeat scroll 0 0 #FFCC66;
-    /* 縁の色と太さ /*
+    background: none repeat scroll 0 0 rgba(150,255,255,0.8);
+    /* 縁の色と太さ */
     border: 1px solid #CCCCCC;
-    /* 文字の色 */
-    color: red;
+    /* 文字の太さ・色 */
+    color: rgba(0,0,0,1);
     /* 吹き出しの形 */
     display: block;
     /* 吹き出しの大きさとか行間とか */
     line-height: 0.5cm;
     margin: 1cm;
     padding: 0.5cm;
+    border-radius: 10px;
     /* 引き出しの出現位置 */
     position: absolute;
-    top: 50px;
+    top: -160px;
+    left: 150px;
     width: 12em;
 }
 
+
 /* -----共有ボタン----- */
-input#share_button{
-    /* ボタンの大きさ */
-    font-size: 20px;
-    padding: 10px 20px;
-
-    /* ボタンの色 */
-    background: #99ff66;
-    border-radius: 15px;
-
-    /* 表示位置 /*/
-    top: 24px;
-    right:120px;
-    position: absolute;
-}
-
-/* -----ロゴアイコンの大きさと位置----- */
-#rogo_icon_size{
-    height: 4cm;
-    width: 4cm;
-
-    /* 表示位置の固定 */
-    top: -50px;
-    left: -10px;
+.buttonContainer{
+    top: -63px;
+    left: 330px;
     position: relative;
 }
 
+a.button{
+    font:normal normal 200 23px 'Open Sans';
+    text-decoration:none;
+    color:rgba(28, 190, 131, 1);
+    background-color:transparent;
+    border:1px solid rgba(28, 190, 131, 1);
+    border-radius:100px;
+    padding: 5px 30px;
+    margin:5px;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, rgba(28, 190, 131, 1) 50%);
+    transition: background-position .9s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+a.button:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:rgba(28, 190, 131, 1);
+    background-position: -100% 100%;
+}
 
 
 /* -----設定アイコン----- */
@@ -128,33 +141,61 @@ input#share_button{
 #setting_icon{
     height: 50px;
     width: 50px;
-
     /* 表示位置の固定 */
-    top: 24px;
-    right: 40px;
-    position: absolute;
+    position: relative;
 }
-
-#menue{
-    display: none;
+.menu {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0;
 }
-
-.set_men a:hover span#menue{
-    position: fixed;
-    background: gray;
-
+.menu a {
     display: block;
-    widows: 5cm;
-    height: 100px;
-
-    right: 0;
-    position: absolute;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    line-height: 1;
+}
+label {
+    top: -70px;
+    right: -700px;
+    display: block;
+    margin: 0 0 2px 0;
+    padding :12px;
+    line-height: 1;
+    color :#fff;
+    cursor :pointer;
+    position: relative;
+}
+.menu ul {
+  font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background :#f4f4f4;
+    list-style: none;
+    border-radius: 10px;
+    top: -170px;
+    right: -530px;
+    position: relative;
+}
+.menu li {
+    max-height: 0;
+    overflow-y: hidden;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#menu_bar01:checked ~ #links01 li,
+#menu_bar02:checked ~ #links02 li {
+    max-height: 46px;
+    opacity: 1;
 }
 
 
-/* テスト用。表示部分の黒塗り /*/
+/* スクロール禁止処理 /*/
 body{
-    background: black;
-    overflow: hidden;
+ overflow: hidden
 }
 /*/

@@ -5,7 +5,7 @@
         <link rel = "stylesheet" type = "text/css" href = "../Home/header.css">
         <script src = "../Home/header.js"></script>
 
-
+<div class="container"> <!--コンテナ用divで囲む-->
         <!-- アイコンをクリックするとメインページにジャンプする処理 -->
         <div class = "header_place">
             <p>
@@ -15,9 +15,10 @@
             </p>
         </div>
 
+
         <!-- 検索フォーム -->
         <div class = "header_place">
-            <form method = "post">
+            <form id = "form">
               <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
               <input id="sbtn" type="submit" value="検索" />
             </form>
@@ -40,24 +41,23 @@
         </div>
 
         <!-- 共有をクリックで共有モジュールへジャンプ -->
-        <div class = "header_place">
-                      <input type = "button" name = "share" value = "共有" onclick="location.href='Share.html'" id = "share_button">
+        <div class="header_place buttonContainer">
+          <a class="header_place button" href="../Template.html" >Share</a>
         </div>
 
         <!-- 設定。歯車マークにマウスカーソルを合わせるまたはクリックで設定メニューを表示 -->
-        <div class = "header_place set_men">
-                <a href = "../Setting">
-                    <img src = "../Image/setting.png" alt = "設定" id = "setting_icon"><!--onmouseover="on_icon();"-->
-                    <span id = "menue">
-                        ユーザ情報の設定</br>
-                        登録情報の設定</br>
-                        ログアウト
-                    </span>
-                </a>
-            </div>
-          
-
-
+        <div class="header_place menu">
+          <label for="menu_bar01">
+            <img src = "../Image/setting.png" alt = "設定" id = "setting_icon"><!--onmouseover="on_icon();"-->
+          </label>
+          <input type="checkbox" id="menu_bar01" class="accordion"  hidden/>
+          <ul id="links01">
+              <li><a href="../Template.html">ユーザ情報の設定</a></li>
+              <li><a href="../Template.html">登録情報の設定</a></li>
+              <li><a href="../Template.html">ログアウト</a></li>
+          </ul>
+        </div>
+</div>
     </head>
-    <body ></body>
+    <body></body>
 </html>
