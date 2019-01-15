@@ -37,14 +37,25 @@
         //型の確認
         //var_dump($name1);
     ?>
+    <script>
+        var pwd = document.getElementbyId('repwd');
+        pwd.addEventListener("input", function() {
+            if (this.value != document.getElementById('pwd').value) {
+                this.setCustomValidity('確認入力されたパスワードが異なります');
+            } else {
+                // input is valid -- reset the error message
+                this.setCustomValidity('');
+            }
+        });
+    </script>
 </head>
 
 <body>
     <form action = "Create_check.php" method = "post">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
-            ユーザID(半角英数字と記号) <br /><br />
             ユーザ名(全角)<br /><br />
+            ユーザID(半角英数字と記号) <br /><br />
             パスワード(半角英数字と記号) <br /><br />
             パスワードの再入力
         </div>
@@ -54,10 +65,10 @@
         </div>
 
         <div align = "left" style="float:left;width:45%;">
-            <input type = "text" name = "name" /> <br /><br />
-            <input type = "text" name = "ID" /> <br /><br />
-            <input type = "password" name = "pwd" /> <br /><br />
-            <input type = "password" name = "repwd" />
+            <input type = "text" name = "name" required/> <br /><br />
+            <input type = "text" name = "ID" required/> <br /><br />
+            <input type = "password" name = "pwd" id = "pwd" required/> <br /><br />
+            <input type = "password" name = "repwd" id = "repwd" required/>
         </div>
 
         <div style="clear:both;"></div>
@@ -69,7 +80,7 @@
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             質問項目 <br /><br />
-            <select name = "q1" width = "40px">
+            <select name = "q1" width = "40px" required>
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
@@ -78,7 +89,7 @@
                 ?>
             </select> <br /><br />
 
-            <select name = "q2" width = "40px">
+            <select name = "q2" width = "40px" required>
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
@@ -87,7 +98,7 @@
                 ?>
             </select> <br /><br />
 
-            <select name = "q3">
+            <select name = "q3" width = "40px" required>
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
@@ -104,9 +115,9 @@
 
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br />
-            <input type = "text" name = "answer1" /> <br /><br />
-            <input type = "text" name = "answer2" /> <br /><br />
-            <input type = "text" name = "answer3" />
+            <input type = "text" name = "answer1" required/> <br /><br />
+            <input type = "text" name = "answer2" required/> <br /><br />
+            <input type = "text" name = "answer3" required/>
         </div>
 
         <div style="clear:both;"></div>
