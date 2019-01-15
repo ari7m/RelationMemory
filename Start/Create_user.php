@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <!--<form action = "Create_check.php" method = "post">-->
+    <form action = "Create_check.php" method = "post">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             ユーザ名(全角)<br /><br />
@@ -127,12 +127,10 @@
 
     <div align = "center">
         <div>
-            <form action = "Create_check.php" method = "post">
-                <input  id = "green" type = "submit" value = "登録確認へ">
-        </form>
+            <input  id = "green" type = "submit" value = "登録確認へ">
         </div>
     </div>
-    <!--</form>-->
+    </form>
 </body>
 
 </html>
