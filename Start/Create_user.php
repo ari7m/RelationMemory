@@ -9,17 +9,33 @@
         // mysqlと接続
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        //データをとって配列$name[]へ
+        //データをとってsそれぞれ配列$nameX[]へ
         $sql = "Select question_1_name from secret_question_1";
         $zenbu = $link -> query($sql);
-        $name = [0, 0, 0, 0, 0];
+        $name1 = [0, 0, 0, 0, 0];
         $i = 0;
         foreach ($zenbu as $row) {
-            $name[$i] =  $row['question_1_name'];
+            $name1[$i] =  $row['question_1_name'];
+            $i = $i + 1;
+        }
+        $sql = "Select question_2_name from secret_question_2";
+        $zenbu = $link -> query($sql);
+        $name2 = [0, 0, 0, 0, 0];
+        $i = 0;
+        foreach ($zenbu as $row) {
+            $name2[$i] =  $row['question_2_name'];
+            $i = $i + 1;
+        }
+        $sql = "Select question_3_name from secret_question_3";
+        $zenbu = $link -> query($sql);
+        $name3 = [0, 0, 0, 0, 0];
+        $i = 0;
+        foreach ($zenbu as $row) {
+            $name3[$i] =  $row['question_3_name'];
             $i = $i + 1;
         }
         //型の確認
-        //var_dump($name);
+        //var_dump($name1);
     ?>
 </head>
 
@@ -56,62 +72,27 @@
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
-                        echo '<option value = "', $name[$i], '">', $name[$i], '</option>';
+                        echo '<option value = "', $name1[$i], '">', $name1[$i], '</option>';
                     }
                 ?>
-                <!--<option value = "item">
-                    地元の特産物
-                </option>
-                <option value = "sporter">
-                    好きなスポーツ選手
-                </option>
-                <option value = "conv">
-                    好きなコンビニ
-                </option>
-                <option value = "pett">
-                    初めてのペットの名前
-                </option>
-                <option value = "oden">
-                    好きなおでんの具
-                </option>-->
             </select> <br /><br />
 
-            <select name = "q2">
+            <select name = "q2" width = "40px">
                 <option value=""></option>
-                <option value = "item">
-                    好きなユーチューバー
-                </option>
-                <option value = "sporter">
-                    嫌いな食べ物
-                </option>
-                <option value = "conv">
-                    好きな芸能人
-                </option>
-                <option value = "pett">
-                    苦手な科目
-                </option>
-                <option value = "oden">
-                    小学校の頃の親友の名前
-                </option>
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo '<option value = "', $name2[$i], '">', $name2[$i], '</option>';
+                    }
+                ?>
             </select> <br /><br />
 
             <select name = "q3">
                 <option value=""></option>
-                <option value = "item">
-                    好きなポテチの味
-                </option>
-                <option value = "sporter">
-                    卒業した母校(小学校)
-                </option>
-                <option value = "conv">
-                    母方の旧姓
-                </option>
-                <option value = "pett">
-                    得意なスポーツ
-                </option>
-                <option value = "oden">
-                    小学校の時に憧れた職業
-                </option>
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo '<option value = "', $name3[$i], '">', $name3[$i], '</option>';
+                    }
+                ?>
             </select> <br /><br />
 
         </div>
