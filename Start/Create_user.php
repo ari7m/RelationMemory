@@ -25,7 +25,7 @@
         </div>
 
         <div style="float:left;width:10%;">
-            <!--ここ全角スペース-->
+            &nbsp;<!--ここ全角スペース-->
         </div>
 
         <div align = "left" style="float:left;width:45%;">
@@ -104,7 +104,7 @@
         </div>
 
         <div style="float:left;width:10%;">
-            <!--ここ全角スペース-->
+            &nbsp;<!--ここ全角スペース-->
         </div>
 
         <div align = "left" style="float:left;width:45%;">
