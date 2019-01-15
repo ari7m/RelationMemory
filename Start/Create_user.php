@@ -16,6 +16,9 @@
             echo $row['name'].'：'.$row['population'].'人';
             echo '<br />';
         }
+        if ($error_message) {
+            echo $error_message;
+        }
         echo 'Hello World!';
     ?>
 </head>
