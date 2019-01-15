@@ -9,7 +9,7 @@
         // mysqlと接続
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        //データをとる感じ
+        //データをとって配列$name[]へ
         $sql = "Select question_1_name from secret_question_1";
         $zenbu = $link -> query($sql);
         $name = [0, 0, 0, 0, 0];
@@ -18,7 +18,8 @@
             $name[$i] =  $row['question_1_name'];
             $i = $i + 1;
         }
-        var_dump($name);
+        //型の確認
+        //var_dump($name);
     ?>
 </head>
 
@@ -53,7 +54,12 @@
             質問項目 <br /><br />
             <select name = "q1" width = "40px">
                 <option value=""></option>
-                <option value = "item">
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo 'option value = "', $name[i], '">', $name[i], '</option>';
+                    }
+                ?>
+                <!--<option value = "item">
                     地元の特産物
                 </option>
                 <option value = "sporter">
@@ -67,7 +73,7 @@
                 </option>
                 <option value = "oden">
                     好きなおでんの具
-                </option>
+                </option>-->
             </select> <br /><br />
 
             <select name = "q2">
