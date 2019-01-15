@@ -38,15 +38,17 @@
         //var_dump($name1);
     ?>
     <script>
-        var pwd = document.getElementById('repwd');
-        pwd.addEventListener("input", function() {
-            if (this.value != document.getElementById('pwd').value) {
-                this.setCustomValidity('確認入力されたパスワードが異なります');
-            } else {
-                // input is valid -- reset the error message
-                this.setCustomValidity('');
+        function CheckPassword(repwd){
+            // 入力値取得
+            var input1 = pwd.value;
+            var input2 = repwd.value;
+            // パスワード比較
+            if(input1 != input2){
+                confirm.setCustomValidity("入力値が一致しません。");
+            }else{
+                confirm.setCustomValidity('');
             }
-        });
+        }
     </script>
 </head>
 
@@ -68,7 +70,7 @@
             <input type = "text" name = "name" required/> <br /><br />
             <input type = "text" name = "ID" required/> <br /><br />
             <input type = "password" name = "pwd" id = "pwd" required/> <br /><br />
-            <input type = "password" name = "repwd" id = "repwd" required/>
+            <input type = "password" name = "repwd" id = "repwd" oninput="CheckPassword(this)" required/>
         </div>
 
         <div style="clear:both;"></div>
