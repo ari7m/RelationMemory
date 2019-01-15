@@ -10,7 +10,8 @@
         $dsn = "mysql:host=localhost; dbname=rmdb; charset=utf8";
         $link = new PDO($dsn, "wolf", "password");
 
-        $q1_1 = $link->query("Select question_1_name from secret_question_1 where id = 1");
+        $sql = "Select question_1_name from secret_question_1 where id = 1";
+        $q1_1 = $link -> query($sql);
         echo $q1_1;
     ?>
 </head>
