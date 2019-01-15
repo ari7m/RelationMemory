@@ -12,7 +12,8 @@
 
         $sql = "Select question_1_name from secret_question_1 where id = 1";
         $q1_1 = $link -> query($sql);
-        echo $q1_1;
+        echo $q1_1 ;
+        echo 'Hello World!';
     ?>
 </head>
 
