@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <form action = "Create_check.php" method = "GET">
+    <form action = "Create_check.php" method = "post">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             ユーザID(半角英数字と記号) <br /><br />
