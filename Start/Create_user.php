@@ -10,7 +10,7 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         //データをとる感じ
-        $sql = "Select question_1_name from secret_question_1 where question_1_id = 1";
+        $sql = "Select question_1_name from secret_question_1";
         $zenbu = $link -> query($sql);
         $name = [0, 0, 0, 0, 0];
         $i = 0;
