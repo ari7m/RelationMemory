@@ -7,15 +7,10 @@
     </h2>
     <?php
         // mysqlと接続
-        try {
-            $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-            $link = new PDO($dsn, 'wolf', 'password');
-            echo 'できぽ';
-        } catch (PDOException $e) {
-            echo 'むりぽ' . $e->getMessage();
-            exit;
-        }
-        $sql = 'Select * from secret_question_1';
+        $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+        $link = new PDO($dsn, 'root');
+
+        $sql = "Select * from secret_question_1";
         $zenbu = $link -> query($sql);
         foreach ($zenbu as $row) {
             echo $row['name'].'：'.$row['population'].'人';
