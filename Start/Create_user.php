@@ -9,7 +9,7 @@
         // mysqlと接続
         $link = mysqli_connect("localhost", "wolf", "password", "rmdb");
 
-        $q1_1 = query(Select question_1_name from secret_question_1 where id = 1);
+        $q1_1 = $dbh->query(Select question_1_name from secret_question_1 where id = 1);
         echo $q1_1;
     ?>
 </head>
