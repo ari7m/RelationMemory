@@ -38,7 +38,7 @@
         //var_dump($name1);
     ?>
     <script>
-        var pwd = document.getElementbyId('repwd');
+        var pwd = document.getElementById('repwd');
         pwd.addEventListener("input", function() {
             if (this.value != document.getElementById('pwd').value) {
                 this.setCustomValidity('確認入力されたパスワードが異なります');
