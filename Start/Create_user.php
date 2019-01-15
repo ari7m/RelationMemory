@@ -12,11 +12,10 @@
 
         $sql = "Select question_1_name from secret_question_1 where question_1_id = 1";
         $zenbu = $link -> query($sql);
-        echo $zenbu;
-        //foreach ($zenbu as $row) {
-        //    echo $row['question_1_id'].'：'.$row['question_1_name'].'';
-        //    echo '<br />';
-        //}
+        foreach ($zenbu as $row) {
+            echo $row['question_1_id'];
+            echo '<br />';
+        }
         echo 'Hello World!';
     ?>
 </head>
