@@ -13,7 +13,7 @@
         $sql = "Select * from secret_question_1";
         $zenbu = $link -> query($sql);
         foreach ($zenbu as $row) {
-            echo $row['name'].'：'.$row['population'].'人';
+            echo $row['question_1_id'].'：'.$row['question_1_name'].'';
             echo '<br />';
         }
         echo 'Hello World!';
