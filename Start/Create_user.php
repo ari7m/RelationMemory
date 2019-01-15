@@ -10,9 +10,12 @@
         $dsn = "mysql:host=localhost; dbname=rmdb; charset=utf8";
         $link = new PDO($dsn, "wolf", "password");
 
-        $sql = "Select question_1_name from secret_question_1 where question_1_id = 1";
-        $q1_1 = $link -> query($sql);
-        echo $q1_1 ;
+        $sql = "Select * from secret_question_1";
+        $zenbu = $link -> query($sql);
+        foreach ($zenbu as $row) {
+            echo $row['name'].'：'.$row['population'].'人';
+            echo '<br />';
+        }
         echo 'Hello World!';
     ?>
 </head>
