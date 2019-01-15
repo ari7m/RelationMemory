@@ -44,9 +44,9 @@
             var input2 = repwd.value;
             // パスワード比較
             if(input1 != input2){
-                confirm.setCustomValidity("入力値が一致しません。");
+                repwd.setCustomValidity("入力値が一致しません。");
             }else{
-                confirm.setCustomValidity('');
+                repwd.setCustomValidity('');
             }
         }
     </script>
