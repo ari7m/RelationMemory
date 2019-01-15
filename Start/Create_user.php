@@ -10,6 +10,7 @@
         try {
             $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
             $link = new PDO($dsn, 'wolf', 'password');
+            echo 'できぽ';
         } catch (PDOException $e) {
             echo 'むりぽ' . $e->getMessage();
             exit;
