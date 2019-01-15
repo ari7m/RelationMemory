@@ -40,6 +40,7 @@
 </head>
 
 <body>
+    <form action = "Create_check.php" method = "GET">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             ユーザID(半角英数字と記号) <br /><br />
@@ -113,11 +114,12 @@
 
     <div align = "center">
         <div>
-            <form action = "Create_check.php">
+            <!--<form action = "Create_check.php">-->
                 <input  id = "green" type = "submit" value = "登録確認へ">
-            </form>
+        <!--</form>-->
         </div>
     </div>
+    </form>
 </body>
 
 </html>
