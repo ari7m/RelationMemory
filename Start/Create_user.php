@@ -56,7 +56,7 @@
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
-                        echo 'option value = "', $name[i], '">', $name[i], '</option>';
+                        echo '<option value = "', $name[$i], '">', $name[$i], '</option>';
                     }
                 ?>
                 <!--<option value = "item">
