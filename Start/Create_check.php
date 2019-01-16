@@ -9,6 +9,17 @@
     <?php
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
+        // 次のページにデータ渡すんだよぉ！！！！！
+        session_start();
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['ID'] = $_POST['ID'];
+        $_SESSION['pwd'] = $_POST['pwd'];
+        $_SESSION['q1'] = $_POST['q1'];
+        $_SESSION['q2'] = $_POST['q2'];
+        $_SESSION['q3'] = $_POST['q3'];
+        $_SESSION['ans1'] = $_POST['answer1'];
+        $_SESSION['ans2'] = $_POST['answer2'];
+        $_SESSION['ans3'] = $_POST['answer3'];
     ?>
 </head>
 <body>
@@ -50,6 +61,7 @@
             <div style="float:left;width:45%;" align = "right">
                 質問項目 <br /><br />
                 <?php
+                    // 受け取ったIDから表示するための質問項目を受け取って表示
                     for ($i = 1; $i < 4; $i++){
                         $que = 'q'. $i;
                         $sql = 'select question_'. $i. '_name from secret_question_'. $i. ' where question_'. $i. '_id = '. $_POST[$que];
@@ -94,9 +106,9 @@
         <div>
             <br />
             <div style="display:inline-flex">
-                <input id = "green" type = "submit" value = "修正" formaction = "Create_done.php">
+                <input id = "green" type = "submit" value = "修正" formaction = "Create_user.php">
                 &nbsp;&nbsp;&nbsp;
-                <input id = "orange" type = "submit" value = "登録" formaction = "../Template.html" >
+                <input id = "orange" type = "submit" value = "登録" formaction = "Create_done.php" >
             </div>
         </div>
     </div>
