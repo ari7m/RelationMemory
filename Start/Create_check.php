@@ -59,7 +59,7 @@
                             $str =  $row['question_', $i, '_name'];
                         }
                         echo $str, '<br /><br />';
-                    }:/
+                    */}
                     /*$sql = 'select question_1_name from secret_question_1 where question_1_id';
                     echo $_POST['q1'], '<br /><br />';
                     echo $_POST['q2'], '<br /><br />';
