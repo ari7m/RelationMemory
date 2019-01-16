@@ -33,10 +33,6 @@
                 echo $hid, '<br /><br />';
                 echo $hid, '<br /><br />';
                 ?>
-                <!--情報太郎 <br /><br />
-                abc_123 <br /><br />
-                ******** <br /><br />
-                ********-->
             </div>
 
             <div style="clear:both;"></div>
@@ -48,10 +44,15 @@
         </h2>
         <div align = "center">
             <div style="float:left;width:45%;" align = "right">
-                質問項目 <br /><br />
+                <?php
+                    echo $_POST['q1'], '<br /><br />';
+                    echo $_POST['q2'], '<br /><br />';
+                    echo $_POST['q3'], '<br /><br />';
+                 ?>
+                <!--質問項目 <br /><br />
                 初めてのペットの名前 <br /><br />
                 小学校の頃の親友の名前<br /><br />
-                母の旧姓
+                母の旧姓-->
             </div>
 
         </div>
@@ -61,10 +62,15 @@
         </div>
 
         <div align = "left" style="float:left;width:45%;">
-            回答 <br /><br />
-            ポチ　<br /><br />
+            回答 <br /><br / />
+            <?php
+                echo $_POST['answer1'], '<br /><br />';
+                echo $_POST['answer2'], '<br /><br />';
+                echo $_POST['answer3'], '<br /><br />';
+             ?>
+            <!--ポチ　<br /><br />
             たけし <br /><br />
-            佐藤
+            佐藤-->
         </div>
 
         <div style="clear:both;"></div>
