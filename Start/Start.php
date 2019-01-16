@@ -1,29 +1,45 @@
 <?php
-// DBとの接続
-$user = 'wolf';
-$pass = 'password';
+session_start();
+// mysqliクラスのオブジェクトを作成
+$mysqli = new mysqli('localhost', 'wolf', 'password', 'rmdb');
+// DBへ接続
+if ($mysqli->connect_error) {
+    echo $mysqli->connect_error;
+    exit();
+} else {
+    $mysqli->set_charset("utf8");
+}
+// dbからidとパスワードの情報を取ってくる
+$id_check = "SELECT user_id FROM rmdb WHERE '001'";
+$pw_check = "SELECT user_password FROM rmdb WHERE '12345'";
 
-try {
-    // MySQLへの接続
-    $dbh = new PDO('mysql:host=localhost;dbname=rmdb', $user, $pass);
 
-    // 接続を使用する
-    $sth = $dbh->query('SELECT * from foo');
-    echo "<pre>";
-    foreach($sth as $row) {
-        print_r($row);
+// ログイン処理
+$infomation = array();
+
+if($_POST){
+    $user_id = $_POST['id'];
+    $user_pw = $_POST['inputPassword'];
+    
+    // ユーザアカウントテーブルから一致するid,pwを含むデータを特定
+    $sql  = 'SELECT user_id, user_name FROM user';
+    $sql .= 'WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
+    
+    // fetch だとエラー吐く
+    $infomation = $mysqli->prepare($sql);
+    
+    // idとニックネームをセッションとして保存
+    if($infomation > 0){
+        $_SESSION['id'] = $infomation[0]['user_id'];
+        $_SESSION['nm'] = $infomation[0]['user_name'];
+    //}
+    
+    // 認証できたら以下のページに飛ぶ
+    //if($_SESSION['id'] > 0){
+        $login_success_url = "index.php";
+        header("Location: {$login_success_url}");
+        exit;
     }
-    echo "</pre>";
-
-    // 接続を閉じる
-    $sth = null;
-    $dbh = null;
-
-    print("DB接続できました！");
-
-} catch (PDOException $e) { // PDOExceptionをキャッチする
-    print "エラー!: " . $e->getMessage() . "<br/gt;";
-    die();
 }
 
 ?>
@@ -44,13 +60,15 @@ try {
         </div>
 
         <div class = "center2">
+            <form action = "start.php" method = "POST">
             <dialog>
                 ユーザID　
                 <input type = "text" name = "id">
                 <br>
-                <form>
+                <!-- <form> -->
                   パスワード
                     <input type = "password" name = "inputPassword"><br/>
+                    <input type = "submit" name = "login" value = "ログイン">
                     <input type = "checkbox" id = "chk" onChange = "toggleInputType(this)" checked>
                     <label for = "chk">
                         パスワードを隠す
@@ -59,7 +77,7 @@ try {
                 <a href = "Secret.html" >忘れた方はこちら<br>
                 </a>
                 <div class = "button_place">
-                    <input type = "button" value = "ログイン" onclick = " location.href = '../Template.html'" id = 'login'>
+                    <!--input type = "button" value = "ログイン" onclick = " location.href = '../Template.html'" id = 'login'-->
                     <input type = "button" value = "閉じる" id = "close">
                 </div>
             </dialog>
