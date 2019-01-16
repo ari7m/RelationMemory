@@ -4,8 +4,12 @@
     <link rel="stylesheet" type="text/css" href="Mitame.css">
     <link rel="stylesheet" type="text/css" href="button.css">
     <h2 class = "title">
-        ユーザ情報の登録
+        ユーザ情報の確認
     </h2>
+    <?php
+        $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+        $link = new PDO($dsn, 'root');
+    ?>
 </head>
 <body>
     <form method = "post">
@@ -47,6 +51,7 @@
                 質問項目 <br /><br />
                 <?php
                     echo $_POST['q1'], '<br /><br />';
+                    var_dump($_POST['q1']);
                     echo $_POST['q2'], '<br /><br />';
                     echo $_POST['q3'], '<br /><br />';
                  ?>
@@ -80,10 +85,9 @@
         <div>
             <br />
             <div style="display:inline-flex">
-                <input id = "green" type = "submit" value = "修正" formaction = "Create_user.php">
+                <input id = "green" type = "submit" value = "修正" formaction = "Create_done.php">
                 &nbsp;&nbsp;&nbsp;
                 <input id = "orange" type = "submit" value = "登録" formaction = "../Template.html" >
-
             </div>
         </div>
     </div>
