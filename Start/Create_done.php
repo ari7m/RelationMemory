@@ -28,7 +28,7 @@
         $sql = 'insert into rmdb.user (user_id, user_name, user_password, question_1_id, question_1_ans, question_2_id, question_2_ans, question_3_id, question_3_ans) values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
         $do = $link -> prepare($sql);
         $param = array(
-            ':name' => 'eigo',
+            ':name' => $name,
             ':ID' => $ID,
             ':pwd' => $pwd,
             ':q1' => $q1,
