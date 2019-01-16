@@ -50,10 +50,10 @@
             <div style="float:left;width:45%;" align = "right">
                 質問項目 <br /><br />
                 <?php
-                    /*for ($i = 1; $i < 4; $i++){
+                    for ($i = 1; $i < 4; $i++){
                         $que = 'q', $i;
                         var_dump($que);
-                        /*$sql = 'select question_', $i, '_name from secret_question_', $i, ' where question_1_id = ', $_POST[$que];
+                        $sql = 'select question_', $i, '_name from secret_question_', $i, ' where question_1_id = ', $_POST[$que];
                         $res = $link -> query($sql);
                         foreach ($res as $row) {
                             $str =  $row['question_', $i, '_name'];
