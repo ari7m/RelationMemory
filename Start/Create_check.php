@@ -27,15 +27,15 @@
 
             <div align = "left" style="float:left;width:45%;">
                 <?php
-                echo $_POST['name'], '<br /><br />';
-                echo $_POST['ID'], '<br /><br />';
-                $str = $_POST['pwd'];
-                $len = strlen($str);
-                for ($i = 0, $hid = ''; $i < $len; $i++) {
-                    $hid .= '*';
-                }
-                echo $hid, '<br /><br />';
-                echo $hid, '<br /><br />';
+                    echo $_POST['name'], '<br /><br />';
+                    echo $_POST['ID'], '<br /><br />';
+                    $str = $_POST['pwd'];
+                    $len = strlen($str);
+                    for ($i = 0, $hid = ''; $i < $len; $i++) {
+                        $hid .= '*';
+                    }
+                    echo $hid, '<br /><br />';
+                    echo $hid, '<br /><br />';
                 ?>
             </div>
 
