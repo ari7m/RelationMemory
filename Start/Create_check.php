@@ -44,13 +44,13 @@
         </h2>
         <div align = "center">
             <div style="float:left;width:45%;" align = "right">
+                質問項目 <br /><br />
                 <?php
                     echo $_POST['q1'], '<br /><br />';
                     echo $_POST['q2'], '<br /><br />';
                     echo $_POST['q3'], '<br /><br />';
                  ?>
-                <!--質問項目 <br /><br />
-                初めてのペットの名前 <br /><br />
+                <!--初めてのペットの名前 <br /><br />
                 小学校の頃の親友の名前<br /><br />
                 母の旧姓-->
             </div>
