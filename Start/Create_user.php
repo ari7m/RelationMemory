@@ -68,8 +68,8 @@
 
         <div align = "left" style="float:left;width:45%;">
             <input type = "text" name = "name" maxlength = "256" pattern = "[^\x20-\x7E\xA1-\xDF]*" required/> <br /><br />
-            <input type = "text" name = "ID" maxlength = "20" pattern = "[\x20-\x7E]" required/> <br /><br />
-            <input type = "password" name = "pwd" id = "pwd" maxlength = "256" pattern = "[ -~]" required/> <br /><br />
+            <input type = "text" name = "ID" maxlength = "20" pattern = "[!-~]" required/> <br /><br />
+            <input type = "password" name = "pwd" id = "pwd" maxlength = "256" pattern = "[!-~]" required/> <br /><br />
             <input type = "password" name = "repwd" id = "repwd" oninput="CheckPassword(this)" required/>
         </div>
 
