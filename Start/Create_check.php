@@ -7,8 +7,8 @@
         ユーザ情報の確認
     </h2>
     <?php
-        $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-        $link = new PDO($dsn, 'root');
+        /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+        $link = new PDO($dsn, 'root');*/
     ?>
 </head>
 <body>
