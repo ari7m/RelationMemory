@@ -8,7 +8,7 @@
     </h2>
     <?php
         /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-        $link = new PDO($dsn. 'root');*/
+        $link = new PDO($dsn, 'root');*/
     ?>
 </head>
 <body>
@@ -27,15 +27,15 @@
 
             <div align = "left" style="float:left;width:45%;">
                 <?php
-                    echo $_POST['name']. '<br /><br />';
-                    echo $_POST['ID']. '<br /><br />';
+                    echo $_POST['name'], '<br /><br />';
+                    echo $_POST['ID'], '<br /><br />';
                     $str = $_POST['pwd'];
                     $len = strlen($str);
-                    for ($i = 0; $hid = ''; $i < $len; $i++) {
+                    for ($i = 0, $hid = ''; $i < $len; $i++) {
                         $hid .= '*';
                     }
-                    echo $hid. '<br /><br />';
-                    echo $hid. '<br /><br />';
+                    echo $hid, '<br /><br />';
+                    echo $hid, '<br /><br />';
                 ?>
             </div>
 
@@ -53,17 +53,17 @@
                     for ($i = 1; $i < 4; $i++){
                         $que = 'q'. $i;
                         var_dump($que);
-                        $sql = 'select question_'. $i. '_name from secret_question_'. $i. ' where question_1_id = '. $_POST[$que];
-                        $res = $link -> query($sql);
+                        $sql = 'select question_', $i, '_name from secret_question_', $i, ' where question_1_id = ', $_POST[$que];
+                        /*$res = $link -> query($sql);
                         foreach ($res as $row) {
-                            $str =  $row['question_'. $i. '_name'];
+                            $str =  $row['question_', $i, '_name'];
                         }
-                        echo $str. '<br /><br />';
+                        echo $str, '<br /><br />';*/
                     }
                     /*$sql = 'select question_1_name from secret_question_1 where question_1_id';
-                    echo $_POST['q1']. '<br /><br />';
-                    echo $_POST['q2']. '<br /><br />';
-                    echo $_POST['q3']. '<br /><br />';*/
+                    echo $_POST['q1'], '<br /><br />';
+                    echo $_POST['q2'], '<br /><br />';
+                    echo $_POST['q3'], '<br /><br />';*/
                  ?>
                 <!--初めてのペットの名前 <br /><br />
                 小学校の頃の親友の名前<br /><br />
@@ -79,9 +79,9 @@
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br / />
             <?php
-                echo $_POST['answer1']. '<br /><br />';
-                echo $_POST['answer2']. '<br /><br />';
-                echo $_POST['answer3']. '<br /><br />';
+                echo $_POST['answer1'], '<br /><br />';
+                echo $_POST['answer2'], '<br /><br />';
+                echo $_POST['answer3'], '<br /><br />';
              ?>
             <!--ポチ　<br /><br />
             たけし <br /><br />
