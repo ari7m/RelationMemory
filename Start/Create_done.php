@@ -21,10 +21,10 @@
         // DBにデータの登録
         try {
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-        $link = new mysqli($dsn, 'root');
-        $link -> set_charset('utf-8');
+        $link = new mysqli_connect($dsn, 'root');
+        mysqli_set_charset( $link, 'utf8');
         $sql = 'insert into rmdb.user values ('. $ID. ', '. $name. ', '. $pwd. ', '. $q1. ', '. $ans1. ', '. $q2. ', '. $ans2. ', '. $q3. ', '. $ans3. ')';
-        $do = $link -> query($sql);
+        $do = mysqli_connect($link, $sql);
         var_dump($sql);
     } catch (PDOException $e) {
         echo $e -> getMessage();
