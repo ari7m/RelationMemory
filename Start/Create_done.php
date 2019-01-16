@@ -20,7 +20,6 @@
         $ans3 = $_SESSION['ans3'];
 
         // DBにデータの登録
-        try {
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -39,10 +38,6 @@
             ':ans3' => $answer3
         );
         $do -> execute($param);
-    } catch (PDOException $e) {
-        echo $e -> getMessage();
-        die();
-    }
         /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
@@ -51,5 +46,8 @@
 </head>
 <body>
     アカウントができました！
+    <form action = "../Template.html">
+        <input type = "submit" value = "今すぐ始める！！！" />
+    </form>
 </body>
 </html>
