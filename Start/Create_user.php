@@ -9,23 +9,55 @@
         // mysqlと接続
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-
-        $sql = "Select question_1_name from secret_question_1 where question_1_id = 1";
+        //データをとってsそれぞれ配列$nameX[]へ
+        $sql = "Select question_1_name from secret_question_1";
         $zenbu = $link -> query($sql);
-        echo $zenbu;
-        //foreach ($zenbu as $row) {
-        //    echo $row['question_1_id'].'：'.$row['question_1_name'].'';
-        //    echo '<br />';
-        //}
-        echo 'Hello World!';
+        $name1 = [0, 0, 0, 0, 0];
+        $i = 0;
+        foreach ($zenbu as $row) {
+            $name1[$i] =  $row['question_1_name'];
+            $i = $i + 1;
+        }
+        $sql = "Select question_2_name from secret_question_2";
+        $zenbu = $link -> query($sql);
+        $name2 = [0, 0, 0, 0, 0];
+        $i = 0;
+        foreach ($zenbu as $row) {
+            $name2[$i] =  $row['question_2_name'];
+            $i = $i + 1;
+        }
+        $sql = "Select question_3_name from secret_question_3";
+        $zenbu = $link -> query($sql);
+        $name3 = [0, 0, 0, 0, 0];
+        $i = 0;
+        foreach ($zenbu as $row) {
+            $name3[$i] =  $row['question_3_name'];
+            $i = $i + 1;
+        }
+        //型の確認
+        //var_dump($name1);
     ?>
+    <script>
+        function CheckPassword(repwd){
+            // 入力値取得
+            var input1 = pwd.value;
+            var input2 = repwd.value;
+            // パスワード比較
+            if(input1 != input2){
+                repwd.setCustomValidity("入力値が一致しません。");
+            }else{
+                repwd.setCustomValidity('');
+            }
+        }
+    </script>
 </head>
 
 <body>
+    <form action = "Create_check.php" method = "post">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
-            ユーザID(半角英数字と記号) <br /><br />
             ユーザ名(全角)<br /><br />
+            ユーザID(半角英数字と記号) <br /><br />
             パスワード(半角英数字と記号) <br /><br />
             パスワードの再入力
         </div>
@@ -35,10 +67,10 @@
         </div>
 
         <div align = "left" style="float:left;width:45%;">
-            <input type = "text" name = "name" /> <br /><br />
-            <input type = "text" name = "ID" /> <br /><br />
-            <input type = "password" name = "pwd" /> <br /><br />
-            <input type = "password" name = "repwd" />
+            <input type = "text" name = "name" maxlength = "256" pattern = "[^\x20-\x7E\xA1-\xDF]*" required/> <br /><br />
+            <input type = "text" name = "ID" maxlength = "20" pattern = "^[!-~]+$" required/> <br /><br />
+            <input type = "password" name = "pwd" id = "pwd" maxlength = "256" pattern = "^[!-~]+$" required/> <br /><br />
+            <input type = "password" name = "repwd" id = "repwd" oninput="CheckPassword(this)" required/>
         </div>
 
         <div style="clear:both;"></div>
@@ -50,61 +82,31 @@
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             質問項目 <br /><br />
-            <select name = "q1" width = "40px">
+            <select name = "q1" width = "40px" required>
                 <option value=""></option>
-                <option value = "item">
-                    地元の特産物
-                </option>
-                <option value = "sporter">
-                    好きなスポーツ選手
-                </option>
-                <option value = "conv">
-                    好きなコンビニ
-                </option>
-                <option value = "pett">
-                    初めてのペットの名前
-                </option>
-                <option value = "oden">
-                    好きなおでんの具
-                </option>
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo '<option value = "', $i + 1, '">', $name1[$i], '</option>';
+                    }
+                ?>
             </select> <br /><br />
 
-            <select name = "q2">
+            <select name = "q2" width = "40px" required>
                 <option value=""></option>
-                <option value = "item">
-                    好きなユーチューバー
-                </option>
-                <option value = "sporter">
-                    嫌いな食べ物
-                </option>
-                <option value = "conv">
-                    好きな芸能人
-                </option>
-                <option value = "pett">
-                    苦手な科目
-                </option>
-                <option value = "oden">
-                    小学校の頃の親友の名前
-                </option>
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo '<option value = "', $i + 1, '">', $name2[$i], '</option>';
+                    }
+                ?>
             </select> <br /><br />
 
-            <select name = "q3">
+            <select name = "q3" width = "40px" required>
                 <option value=""></option>
-                <option value = "item">
-                    好きなポテチの味
-                </option>
-                <option value = "sporter">
-                    卒業した母校(小学校)
-                </option>
-                <option value = "conv">
-                    母方の旧姓
-                </option>
-                <option value = "pett">
-                    得意なスポーツ
-                </option>
-                <option value = "oden">
-                    小学校の時に憧れた職業
-                </option>
+                <?php
+                    for ($i = 0; $i < 5; $i++) {
+                        echo '<option value = "', $i + 1, '">', $name3[$i], '</option>';
+                    }
+                ?>
             </select> <br /><br />
 
         </div>
@@ -115,9 +117,9 @@
 
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br />
-            <input type = "text" name = "answer1" /> <br /><br />
-            <input type = "text" name = "answer2" /> <br /><br />
-            <input type = "text" name = "answer3" />
+            <input type = "text" name = "answer1" required/> <br /><br />
+            <input type = "text" name = "answer2" required/> <br /><br />
+            <input type = "text" name = "answer3" required/>
         </div>
 
         <div style="clear:both;"></div>
@@ -125,11 +127,10 @@
 
     <div align = "center">
         <div>
-            <form action = "Create_check.php">
-                <input  id = "green" type = "submit" value = "登録確認へ">
-            </form>
+            <input  id = "green" type = "submit" value = "登録確認へ">
         </div>
     </div>
+    </form>
 </body>
 
 </html>
