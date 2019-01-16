@@ -1,4 +1,4 @@
-q1<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>
