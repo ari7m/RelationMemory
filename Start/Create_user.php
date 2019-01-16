@@ -86,7 +86,7 @@
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
-                        echo '<option value = "', $name1[$i], '">', $name1[$i], '</option>';
+                        echo '<option value = "', $i + 1, '">', $name1[$i], '</option>';
                     }
                 ?>
             </select> <br /><br />
@@ -95,7 +95,7 @@
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
-                        echo '<option value = "', $name2[$i], '">', $name2[$i], '</option>';
+                        echo '<option value = "', $i + 1, '">', $name2[$i], '</option>';
                     }
                 ?>
             </select> <br /><br />
@@ -104,7 +104,7 @@
                 <option value=""></option>
                 <?php
                     for ($i = 0; $i < 5; $i++) {
-                        echo '<option value = "', $name3[$i], '">', $name3[$i], '</option>';
+                        echo '<option value = "', $i + 1, '">', $name3[$i], '</option>';
                     }
                 ?>
             </select> <br /><br />
