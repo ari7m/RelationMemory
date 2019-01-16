@@ -9,13 +9,13 @@
         // SESSIONからデータの受け取り
         session_start();
         $name = $_SESSION['name'];
-        var_dump($name);
         $ID = $_SESSION['ID'];
         $pwd = $_SESSION['pwd'];
         $q1 = $_SESSION['q1'];
         $q2 = $_SESSION['q2'];
         $q3 = $_SESSION['q3'];
         $ans1 = $_SESSION['ans1'];
+        var_dump($ans1);
         $ans2 = $_SESSION['ans2'];
         $ans3 = $_SESSION['ans3'];
 
