@@ -60,7 +60,7 @@
                         }
                         echo $str, '<br /><br />';
                     }
-                } catch {
+                } catch (Exception $e) {
                     echo '捕捉した例外: ',  $e->getMessage(), "\n";
                 }
                     /*$sql = 'select question_1_name from secret_question_1 where question_1_id';
