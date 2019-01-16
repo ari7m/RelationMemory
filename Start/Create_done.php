@@ -9,6 +9,7 @@
         // SESSIONからデータの受け取り
         session_start();
         $name = $_SESSION['name'];
+        var_dump($name);
         $ID = $_SESSION['ID'];
         $pwd = $_SESSION['pwd'];
         $q1 = $_SESSION['q1'];
@@ -27,7 +28,7 @@
         $sql = 'insert into rmdb.user (user_id, user_name, user_password, question_1_id, question_1_ans, question_2_id, question_2_ans, question_3_id, question_3_ans) values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
         $do = $link -> prepare($sql);
         $param = array(
-            ':name' => 'namae',
+            ':name' => $name,
             ':ID' => $ID,
             ':pwd' => $pwd,
             ':q1' => $q1,
