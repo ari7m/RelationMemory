@@ -50,10 +50,19 @@
             <div style="float:left;width:45%;" align = "right">
                 質問項目 <br /><br />
                 <?php
+                    for ($i = 1; $i < 4; $i++){
+                        $que = 'q', $i;
+                        $sql = 'select question_', $i, '_name from secret_question_', $i, ' where question_1_id = ', $que;
+                        $res = $link -> query($sql);
+                        foreach ($res as $row) {
+                            $str =  $row['question_', $i, '_name'];
+                        }
+                        echo $str, '<br /><br />';
+                    }
+                    /*$sql = 'select question_1_name from secret_question_1 where question_1_id';
                     echo $_POST['q1'], '<br /><br />';
-                    var_dump($_POST['q1']);
                     echo $_POST['q2'], '<br /><br />';
-                    echo $_POST['q3'], '<br /><br />';
+                    echo $_POST['q3'], '<br /><br />';*/
                  ?>
                 <!--初めてのペットの名前 <br /><br />
                 小学校の頃の親友の名前<br /><br />
