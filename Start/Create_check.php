@@ -50,6 +50,7 @@
             <div style="float:left;width:45%;" align = "right">
                 質問項目 <br /><br />
                 <?php
+                    $i = 1;
                     $que = 'q', $i;
                     var_dump($que);
                     /*for ($i = 1; $i < 4; $i++){
