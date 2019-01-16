@@ -52,7 +52,8 @@
                 <?php
                     for ($i = 1; $i < 4; $i++){
                         $que = 'q'. $i;
-                        var_dump($que);
+                        var_dump($_POST[$que]);
+
                         //$sql = 'select question_', $i, '_name from secret_question_', $i, ' where question_1_id = ', $_POST[$que];
                         /*$res = $link -> query($sql);
                         foreach ($res as $row) {
