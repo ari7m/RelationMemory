@@ -53,12 +53,11 @@
                     for ($i = 1; $i < 4; $i++){
                         $que = 'q'. $i;
                         $sql = 'select question_'. $i. '_name from secret_question_'. $i. ' where question_'. $i. '_id = '. $_POST[$que];
-                        var_dump($sql);
-                        /*$res = $link -> query($sql);
+                        $res = $link -> query($sql);
                         foreach ($res as $row) {
-                            $str =  $row['question_', $i, '_name'];
+                            $str =  $row['question_'. $i. '_name'];
                         }
-                        echo $str, '<br /><br />';*/
+                        echo $str. '<br /><br />';
                     }
                     /*$sql = 'select question_1_name from secret_question_1 where question_1_id';
                     echo $_POST['q1'], '<br /><br />';
