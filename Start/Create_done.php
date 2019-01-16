@@ -6,8 +6,6 @@
     </title>
     <meta charset="utf-8" />
     <?php
-        $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-        $link = new PDO($dsn, 'root');
         // SESSIONからデータの受け取り
         session_start();
         $name = $_SESSION['name'];
@@ -21,8 +19,19 @@
         $ans3 = $_SESSION['ans3'];
 
         // DBにデータの登録
+        try {
+        $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+        $link = new PDO($dsn, 'root');
         $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
         $do = $link -> query($sql);
+    } catch (PDOException $e) {
+        echo $e -> getMessage();
+        die();
+    }
+        /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+        $link = new PDO($dsn, 'root');
+        $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
+        $do = $link -> query($sql);*/
     ?>
 </head>
 <body>
