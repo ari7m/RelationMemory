@@ -25,8 +25,11 @@
                 <?php
                 echo $_POST['name'], '<br /><br />';
                 echo $_POST['ID'], '<br /><br />';
-                echo $_POST['pwd'], '<br /><br />';
-                echo $_POST['repwd'], '<br /><br />';
+                for ($i = 0, $hid = ''; $i < mb_strlen($_POST['pwd']); $i++) {
+                    $hid ,= '*';
+                }
+                echo $hid, '<br /><br />';
+                echo $hid, '<br /><br />';
                 ?>
                 <!--情報太郎 <br /><br />
                 abc_123 <br /><br />
