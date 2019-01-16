@@ -24,8 +24,8 @@
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $sql = 'insert into rmdb.user values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
-        $do = $link -> query($sql);
+        $sql = 'insert into rmdb.user () values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
+        $do = $link -> prepare($sql);
         $param = array(
             ':name' => $name,
             ':ID' => $ID,
