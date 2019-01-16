@@ -26,7 +26,7 @@
                 echo $_POST['name'], '<br /><br />';
                 echo $_POST['ID'], '<br /><br />';
                 for ($i = 0, $hid = ''; $i < mb_strlen($_POST['pwd']); $i++) {
-                    $hid ,= '*';
+                    $hid .= '*';
                 }
                 echo $hid, '<br /><br />';
                 echo $hid, '<br /><br />';
