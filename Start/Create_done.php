@@ -1,3 +1,3 @@
 <?php
-    echo $_POST['name'];
+    echo $_SESSION['name'];
  ?>
