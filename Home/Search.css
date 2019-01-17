@@ -1,8 +1,9 @@
+/*HTML全体のmargin*/
 body{
     margin:0 0 0 0;
 }
 
-/*ボックス全体*/
+/*ボックス(アコーディオン)全体*/
 .accbox{
     margin: 0 0;
     padding: 0;
@@ -21,15 +22,15 @@ body{
     box-sizing:border-box;
 }
 
-/*アイコンを表示*/
+/*右の三角を表示*/
 .accbox label:after{
     content:'\f0d7';
     font-family:'Font Awesome 5 free';
-    padding-left: 175px;
+    padding-left: 165px;
 }
 
-/*チェックを隠す*/
-.accbox input[id="day"], [id="age"],[id="birthday"],[id="blood"] {
+/*アコーディオンはcheckboxで行うのでチェックを隠す*/
+.accbox input[id="mday"], [id="age"],[id="bday"],[id="blood"] {
     display: none;
 }
 /*中身を非表示にしておく*/
@@ -51,18 +52,21 @@ body{
 }
 
 
-/*矢印を反対*/
+/*クリックしたら三角を反対*/
 .cssacc:checked + label:after{
     content:'\f0d8';
 }
 
+/*検索部分のstyle*/
 #lsearch {
     background:#FFFF66;
     border:solid 1px #000000;
     cursor:pointer;
+    text-decoration:none;
     
 }
 
+/*検索boxを動かないように*/
 .search {
     z-index:1500;
     position:fixed;
