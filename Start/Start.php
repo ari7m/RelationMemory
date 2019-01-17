@@ -1,44 +1,44 @@
 <?php
 session_start();
-// mysqliクラスのオブジェクトを作成
-$mysqli = new mysqli('localhost', 'wolf', 'password', 'rmdb');
-// DBへ接続
-if ($mysqli->connect_error) {
-    echo $mysqli->connect_error;
-    exit();
-} else {
-    $mysqli->set_charset("utf8");
-}
-// dbからidとパスワードの情報を取ってくる
-$id_check = "SELECT user_id FROM rmdb WHERE '001'";
-$pw_check = "SELECT user_password FROM rmdb WHERE '12345'";
+/* DBと接続
+$dsn = "mysql:host=localhost; dbname=rmdb; charset=utf8";
+$link = new PDO($dsn, "wolf", "password");
+*/
+$options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
 
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'rmdb');
+define('DB_USER', 'wolf');
+define('DB_PASSWORD', 'password');
+
+try {
+     $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
+     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+     echo $e->getMessage();
+     exit;
+}
 
 // ログイン処理
-$infomation = array();
-
+// 「ログインボタン」が押されたとき
+//if(isset($_POST['login'])){
 if($_POST){
     $user_id = $_POST['id'];
     $user_pw = $_POST['inputPassword'];
     
     // ユーザアカウントテーブルから一致するid,pwを含むデータを特定
-    $sql  = 'SELECT user_id, user_name FROM user';
-    $sql .= 'WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
+    $sql  = 'SELECT user_id, user_name FROM user WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
     
-    // fetch だとエラー吐く
-    $infomation = $mysqli->prepare($sql);
+    // エラー：値が多分入ってない
+    $stmt = $dbh -> prepare($sql);
+    //$result ＝ $stmt-＞fetch(PDO::FETCH_ASSOC);
     
-    // idとニックネームをセッションとして保存
-    if($infomation > 0){
-        $_SESSION['id'] = $infomation[0]['user_id'];
-        $_SESSION['nm'] = $infomation[0]['user_name'];
-    //}
-    
-    // 認証できたら以下のページに飛ぶ
-    //if($_SESSION['id'] > 0){
+    if($stmt != null){
+        $_SESSION["id"] = $user_id;
         $login_success_url = "index.php";
         header("Location: {$login_success_url}");
         exit;
+
     }
 }
 
