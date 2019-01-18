@@ -28,18 +28,17 @@ if($_POST){
     
     // ユーザアカウントテーブルから一致するid,pwを含むデータを特定
     $sql  = 'SELECT user_id, user_name FROM user WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
-    
-    // エラー：値が多分入ってない
-    $stmt = $dbh -> prepare($sql);
-    //$result ＝ $stmt-＞fetch(PDO::FETCH_ASSOC);
+    // dbから得られたログイン情報を格納
+    $result = $dbh -> query($sql) -> fetch(PDO::FETCH_ASSOC);
     
     if($stmt != null){
         $_SESSION["id"] = $user_id;
-        $login_success_url = "index.php";
+        $login_success_url = "Template.php";
         header("Location: {$login_success_url}");
         exit;
 
     }
+    $error_message = "※ID、もしくはパスワードが間違っています。<br>　もう一度入力して下さい。";
 }
 
 ?>
@@ -60,7 +59,7 @@ if($_POST){
         </div>
 
         <div class = "center2">
-            <form action = "start.php" method = "POST">
+            <form action = "Start.php" method = "POST">
             <dialog>
                 ユーザID　
                 <input type = "text" name = "id">
