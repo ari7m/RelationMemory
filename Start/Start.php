@@ -21,8 +21,8 @@ try {
 
 // ログイン処理
 // 「ログインボタン」が押されたとき
-//if(isset($_POST['login'])){
-if($_POST){
+if(isset($_POST['login'])){
+//if($_POST){
     $user_id = $_POST['id'];
     $user_pw = $_POST['inputPassword'];
     
