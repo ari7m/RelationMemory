@@ -33,7 +33,7 @@ if($_POST){
     
     if($stmt != null){
         $_SESSION["id"] = $user_id;
-        header("Location: ../Template.php");
+        header("Location: ../Template.html");
         exit;
 
     }
