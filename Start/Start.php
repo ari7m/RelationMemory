@@ -33,8 +33,7 @@ if($_POST){
     
     if($stmt != null){
         $_SESSION["id"] = $user_id;
-        $login_success_url = "Template.php";
-        header("Location: {$login_success_url}");
+        header("Location: ../Template.php");
         exit;
 
     }
