@@ -64,8 +64,6 @@
        echo '<br>';
       }
 
-
-
       // 接続を閉じる
       $sth = null;
       $dbh = null;
@@ -121,7 +119,6 @@
       <div class="left_wrap">
         <p class = "businesscardU">
           顔写真<br>
-
           <img src="./kao.png" width = 150px>
         </p>
         </div>
@@ -141,6 +138,8 @@
           <p class = "birthday">
             生年月日　　　<?php echo $row['birth_year']?>年<?php echo $row['birth_month']?>月<?php echo $row['birth_day']?>日
           </p>
+
+          
 
           <p class = "relation">
             関　　係　　　<?php
