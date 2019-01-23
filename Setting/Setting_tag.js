@@ -1,7 +1,8 @@
+
 // 静的変数的な
 var num = function() {
     // 変数"a"を初期化
-    var a = 0;
+    var a = "0";
     // 処理内容の（外側でtest関数になる）無名関数を返す
     return function() {
         // 変数"a"をカウントアップ
@@ -12,26 +13,13 @@ var num = function() {
 }();
 // 最初に表示される分(title属性の値の数だけ表示)
 window.onload = function() {
-    const tag = document.getElementById("tag");
-    const item = document.getElementById("item");
+   
+   
     const cntTag = tag.getAttribute("data-cntTag");
-    const cntItem = item.getAttribute("data-cntItem");
     for (var i = 0; i < cntTag; i++) {
-        CreateForm("tag");
+        var N = num();
         if (i == 0) {
-            tag.removeChild(tag.firstChild);
-            tag.removeChild(tag.firstChild);
-            tag.removeChild(tag.firstChild);
-            tag.removeChild(tag.lastChild);
-        }
-    }
-    for (var i = 0; i < cntItem; i++) {
-        CreateForm("item");
-        if (i == 0) {
-            item.removeChild(item.firstChild);
-            item.removeChild(item.firstChild);
-            item.removeChild(item.firstChild);
-            item.removeChild(item.lastChild);
+         
         }
     }
 }
@@ -45,16 +33,19 @@ function CreateForm(str) {
     input.setAttribute("type", "text");
     input.setAttribute("value", N);
     input.setAttribute("id", str + N);
+    input.setAttribute("name", str + N);
     // buttonの属性設定
     button.setAttribute("type", "button");
     button.setAttribute("value", "削除");
     button.setAttribute("onclick", "RemoveForm(" + N + ", '" + str + "')");
     button.setAttribute("id", "button" + N);
     // 描画
-    id.appendChild(document.createElement("br"));
-    id.appendChild(document.createElement("br"));
+   
     id.appendChild(input);
     id.appendChild(button);
+        id.appendChild(document.createElement("br"));
+    id.appendChild(document.createElement("br"));
+
 }
 // form消す分
 function RemoveForm(num, str) {
