@@ -20,6 +20,8 @@ while($MI_name = $dbh -> query($sql)->fetch(PDO::FETCH_ASSOC)){
     $MI_names[] = $MI_name;
     $count++;
 }
+//PDO::FETCH_ASSOC でとってきた値の連想配列を変数に格納
+//foreach($MI_name_for_db as $MI_name_surname => $MI_name);
 
 var_dump($count);
 ?>
@@ -45,7 +47,7 @@ var_dump($count);
     <?php endfor ?>
     </span>
 		<!--
-    <div class="container"> <!--コンテナ用divで囲む--
+    <div class="container"> <--コンテナ用divで囲む
       <div class="left_wrap"> 
 	<div class="main" id="id_1">
 	  <image src="image.png" class="image">
