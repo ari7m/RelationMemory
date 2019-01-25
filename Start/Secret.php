@@ -1,5 +1,8 @@
 <!DOCTYPE HtML>
 <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="Secret.css">　
+    <title>秘密の質問回答画面</title>
     <?php
     $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
     $link = new PDO($dsn, 'root');
@@ -44,7 +47,7 @@
                     <center>
                         <font size="6"><b>質問項目</b></font>
                         <br>
-                        <select name = "q1" width = "40px" required>
+                        <select name = "q1" width = "40px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -53,7 +56,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q2" width = "40px" required>
+                        <select name = "q2" width = "40px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -62,7 +65,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q3" width = "40px" required>
+                        <select name = "q3" width = "40px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
