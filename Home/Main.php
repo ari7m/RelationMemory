@@ -33,58 +33,27 @@ $surname_count = count($surname);
   </head>
 
   <body>
-    <?php for($i = 0; $i < $surname_count; $i++):?>
-    <span class ="container">
-        <image src="image.png", class="image">
-        <button class="button" type="submit" onclick="location.href='Reading.html'">
-        <!--ここに名前入れると表示される-->
-        <?php
-        //var_dump($MI_name);
-        echo $surname[$i];
-        ?>
-        </button>
-    <?php endfor ?>
-    </span>
-		<!--
-    <div class="container"> <--コンテナ用divで囲む
-      <div class="left_wrap"> 
-	<div class="main" id="id_1">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'">有薗 里奈</button>
-	</div>
-	<div class="main" id="id_2">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'">伊藤 佑樹</button>
-	</div>
-	<div class="main" id="id_3">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'">河野 雄也</button>
-	</div>
-	<div class="main" id="id_4">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'"> 高橋 慎也</button>
-	</div>
-	<div class="main" id="id_5">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'"> 南部 美希奈</button>
-	</div>
-	<div class="main" id="id_6">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'">引本 匡磨</button>
-	</div>
-	<div class="main" id="id_7">
-	  <image src="image.png" class="image">
-	    <button class="button" type="submit" onclick="location.href='Reading.html'">堀　 彩華</button>
-	</div>
-      </div>
-		</div>
+	<?php for($i = 0; $i < $surname_count ; $i++):?>
+        <span class ="container">
+            <div class="main">
+            <image src="image.png", class="image">
+            <button class="button" type="submit" onclick="location.href='Reading.html'">
+            <!--ここに名前入れると表示される-->
+            <?php
+            //var_dump($MI_name);
+            echo $surname[$i];
+            ?>
+            </button>
+            </div>
+        </span>    
+    <?php endfor?>
 		
-	-->
+		<!-- 管理情報追加ボタン -->
     <button class="create" onclick="location.href='/MIPage/Create_mi.html'">
       <img src="plus.png" class="plus">
-      
-      
-    </button>
+		</button>
+		
+		<!-- タグの表示部分 -->
     <ul class="tag">
       
 			<li id="alltag"><label><input type="radio" name="Tag" style="display:none" onclick="location.href='Main.html'"/>
