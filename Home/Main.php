@@ -13,17 +13,16 @@ try {
      echo $e->getMessage();
      exit;
 }
-$count = 0;
-$id = $_SESSION['id'];
-$sql = 'SELECT surname, name FROM info_a WHERE user_id = "' .$id.'"';
-while($MI_name = $dbh -> query($sql)->fetch(PDO::FETCH_ASSOC)){
-    $MI_names[] = $MI_name;
-    $count++;
-}
+$sql = 'SELECT surname FROM info_a WHERE user_id = "' .$id.'"';
+
 //PDO::FETCH_ASSOC でとってきた値の連想配列を変数に格納
 //foreach($MI_name_for_db as $MI_name_surname => $MI_name);
+$MI_name_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
+foreach($MI_name_for_db as $row){
+    $surname[] = $row['surname'];
+}
 
-var_dump($count);
+$surname_count = count($surname);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -34,14 +33,14 @@ var_dump($count);
   </head>
 
   <body>
-    <?php for($i = 0; $i = $count; $i++):?>
+    <?php for($i = 0; $i < $surname_count; $i++):?>
     <span class ="container">
         <image src="image.png", class="image">
         <button class="button" type="submit" onclick="location.href='Reading.html'">
         <!--ここに名前入れると表示される-->
         <?php
         //var_dump($MI_name);
-        echo $MI_names;
+        echo $surname[$i];
         ?>
         </button>
     <?php endfor ?>
