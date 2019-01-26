@@ -13,16 +13,21 @@ try {
      echo $e->getMessage();
      exit;
 }
-$sql = 'SELECT surname FROM info_a WHERE user_id = "' .$id.'"';
 
-//PDO::FETCH_ASSOC でとってきた値の連想配列を変数に格納
-//foreach($MI_name_for_db as $MI_name_surname => $MI_name);
+// 苗字(surname)と名前(name)をDBより取得
+$sql = 'SELECT surname, name FROM info_a WHERE user_id = "' .$id.'"';
 $MI_name_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
-foreach($MI_name_for_db as $row){
-    $surname[] = $row['surname'];
+//var_dump(count($MI_name_for_db));
+// 変数へ代入
+foreach($MI_name_for_db as $surname_and_name){
+    $MI_surname[] = $surname_and_name['surname'];
+    $MI_name[] = $surname_and_name['name'];
 }
+//var_dump($MI_surname);
+//echo $MI_surname[0] . $MI_name[0];
 
-$surname_count = count($surname);
+$MI_array = count($MI_name_for_db); // ユーザがもつ管理情報の数を格納
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -33,7 +38,7 @@ $surname_count = count($surname);
   </head>
 
   <body>
-	<?php for($i = 0; $i < $surname_count ; $i++):?>
+	<?php for($i = 0; $i < $MI_array ; $i++):?>
         <span class ="container">
             <div class="main">
             <image src="image.png", class="image">
@@ -41,7 +46,7 @@ $surname_count = count($surname);
             <!--ここに名前入れると表示される-->
             <?php
             //var_dump($MI_name);
-            echo $surname[$i];
+            echo $MI_surname[$i] . $MI_name[$i];
             ?>
             </button>
             </div>
