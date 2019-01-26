@@ -30,7 +30,7 @@ if(isset($_POST['login'])){
     $sql  = 'SELECT user_id, user_name FROM user WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
     // dbから得られたログイン情報を格納
     $result = $dbh -> query($sql) -> fetch(PDO::FETCH_ASSOC);
-    if($restult != null){
+    if($result != null){
         $_SESSION["id"] = $user_id;
         header("Location: ../Template.html");
         exit;
