@@ -14,19 +14,20 @@ try {
      exit;
 }
 
-// 苗字(surname)と名前(name)をDBより取得
-$sql = 'SELECT surname, name FROM info_a WHERE user_id = "' .$id.'"';
-$MI_name_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
+// 苗字(surname)と名前(name), 写真(image)をDBより取得
+$sql = 'SELECT surname, name, image FROM info_a WHERE user_id = "' .$id.'"';
+$MI_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
 //var_dump(count($MI_name_for_db));
 // 変数へ代入
-foreach($MI_name_for_db as $surname_and_name){
-    $MI_surname[] = $surname_and_name['surname'];
-    $MI_name[] = $surname_and_name['name'];
+foreach($MI_for_db as $MI){
+    $MI_surname[] = $MI['surname'];
+		$MI_name[] = $MI['name'];
+		$MI_image[] = $MI['image'];
 }
 //var_dump($MI_surname);
 //echo $MI_surname[0] . $MI_name[0];
 
-$MI_array = count($MI_name_for_db); // ユーザがもつ管理情報の数を格納
+$MI_array = count($MI_for_db); // ユーザがもつ管理情報の数を格納
 
 ?>
 <!DOCTYPE HTML>
@@ -41,7 +42,7 @@ $MI_array = count($MI_name_for_db); // ユーザがもつ管理情報の数を�
 	<?php for($i = 0; $i < $MI_array ; $i++):?>
         <span class ="container">
             <div class="main">
-            <image src="image.png", class="image">
+            <image src=<?php $MI_image[$i];?>, class="image">
             <button class="button" type="submit" onclick="location.href='Reading.html'">
             <!--ここに名前入れると表示される-->
             <?php
