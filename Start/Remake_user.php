@@ -11,9 +11,10 @@
         $link = new PDO($dsn, 'root');
         $sql = 'select count(*) from secret_question_1 where question_1_name = "'. $_POST["a1"]. '"';
         $stmt = $link -> query($sql);
-        foreach ($stmt as $row) {
+        $tf1 = $stmt -> fetchColumn();
+        /*foreach ($stmt as $row) {
             $tf1 =  $row[];
-        }
+        }*/
         echo $tf1;
     ?>
     <script>
