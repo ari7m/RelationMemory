@@ -47,7 +47,7 @@
                     <center>
                         <font size="6"><b>質問項目</b></font>
                         <br>
-                        <select name = "q1" style="font-size:24pt; width: 300pt;" required>
+                        <select name = "q1" style="font-size:24pt; width: 350pt;" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
