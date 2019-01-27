@@ -85,13 +85,13 @@
                         <center>
                             <font size="6"><b>回答   </b></font>
                             <br>
-                            <input type="text" name="a1" size="26pt" style="font-size:24pt;" >
+                            <input type="text" name="a1" size="26pt" style="font-size:24pt;" required>
                             <br>
                             <br>
-                            <input type="text" name="a2" size="26pt" style="font-size:24pt;" >
+                            <input type="text" name="a2" size="26pt" style="font-size:24pt;" required>
                             <br>
                             <br>
-                            <input type="text" name="a3" size="26pt" style="font-size:24pt;" >
+                            <input type="text" name="a3" size="26pt" style="font-size:24pt;" required>
                             <br>
                             <br>
                         </center>
