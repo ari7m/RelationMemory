@@ -56,7 +56,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q2" width = "60px" style="font-size:24pt" required>
+                        <select name = "q2" width = "60px" style="font-size:24pt; width: 350pt;" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -65,7 +65,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q3" width = "60px" style="font-size:24pt" required>
+                        <select name = "q3" width = "60px" style="font-size:24pt; width: 350pt;" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
