@@ -36,69 +36,71 @@
     ?>
 </head>
 <body>
-    <font size="7"><p>　　　　秘密の質問を選択</p></font>
-    <!--　1/2分割テーブルの作成 -->
-    <ul>
+    <form action = "Remake_user.php" method = "post">
+        <font size="7"><p>　　　　秘密の質問を選択</p></font>
+        <!--　1/2分割テーブルの作成 -->
+        <ul>
 
-        <table border="0.1">
-            <tr>
+            <table border="0.1">
+                <tr>
 
-                <td width="50%">
-                    <center>
-                        <font size="6"><b>質問項目</b></font>
-                        <br>
-                        <select name = "q1" style="font-size:24pt; width: 350pt;" required>
-                            <option value=""></option>
-                            <?php
+                    <td width="50%">
+                        <center>
+                            <font size="6"><b>質問項目</b></font>
+                            <br>
+                            <select name = "q1" style="font-size:24pt; width: 350pt;" required>
+                                <option value=""></option>
+                                <?php
                                 for ($i = 0; $i < 5; $i++) {
                                     echo '<option value = "', $i + 1, '">', $name1[$i], '</option>';
                                 }
-                            ?>
-                        </select> <br /><br />
+                                ?>
+                            </select> <br /><br />
 
-                        <select name = "q2" style="font-size:24pt; width: 350pt;" required>
-                            <option value=""></option>
-                            <?php
+                            <select name = "q2" style="font-size:24pt; width: 350pt;" required>
+                                <option value=""></option>
+                                <?php
                                 for ($i = 0; $i < 5; $i++) {
                                     echo '<option value = "', $i + 1, '">', $name2[$i], '</option>';
                                 }
-                            ?>
-                        </select> <br /><br />
+                                ?>
+                            </select> <br /><br />
 
-                        <select name = "q3" style="font-size:24pt; width: 350pt;" required>
-                            <option value=""></option>
-                            <?php
+                            <select name = "q3" style="font-size:24pt; width: 350pt;" required>
+                                <option value=""></option>
+                                <?php
                                 for ($i = 0; $i < 5; $i++) {
                                     echo '<option value = "', $i + 1, '">', $name3[$i], '</option>';
                                 }
-                            ?>
-                        </select>
-                        <br>
-                        <br>
+                                ?>
+                            </select>
+                            <br>
+                            <br>
 
-                    </center>
-                </td>
+                        </center>
+                    </td>
 
-                <td width="50%">
-                    <center>
-                        <font size="6"><b>回答   </b></font>
-                        <br>
-                        <input type="text" name="a1" size="26pt" style="font-size:24pt;" >
-                        <br>
-                        <br>
-                        <input type="text" name="a2" size="26pt" style="font-size:24pt;" >
-                        <br>
-                        <br>
-                        <input type="text" name="a3" size="26pt" style="font-size:24pt;" >
-                        <br>
-                        <br>
-                    </center>
-                </td>
+                    <td width="50%">
+                        <center>
+                            <font size="6"><b>回答   </b></font>
+                            <br>
+                            <input type="text" name="a1" size="26pt" style="font-size:24pt;" >
+                            <br>
+                            <br>
+                            <input type="text" name="a2" size="26pt" style="font-size:24pt;" >
+                            <br>
+                            <br>
+                            <input type="text" name="a3" size="26pt" style="font-size:24pt;" >
+                            <br>
+                            <br>
+                        </center>
+                    </td>
 
-            </tr>
-        </table>
-    </ul>
-    <center>
-        <button class="button3" type="submit" onclick="location.href = 'Remake_user.html'">パスワードの再入力</button>
-    </center>
+                </tr>
+            </table>
+        </ul>
+        <center>
+            <input type = "submit" class="button3" type="submit" value = "パスワードの再入力" />
+        </center>
+    </form>
 </body>
