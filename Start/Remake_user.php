@@ -9,7 +9,7 @@
         // mysqlと接続
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        $sql = 'select count(*) from user
+        $sql = 'select user_id from user
                 where question_1_id = 1 and question_1_ans = "ほうじ茶"
                 and question_2_id = 1 and question_2_ans = "syamu_game"
                 and question_3_id = 1 and question_3_ans = "コンソメ"';
