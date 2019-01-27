@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="Secret.css">　
+    <link rel="stylesheet" type="text/css" href="Mitame.css">
     <title>秘密の質問回答画面</title>
     <?php
     $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
@@ -100,7 +101,7 @@
             </table>
         </ul>
         <center>
-            <input type = "submit" class="button3" type="submit" value = "パスワードの再入力" />
+            <input type = "submit" id="green" type="submit" value = "パスワードの再入力" />
         </center>
     </form>
 </body>
