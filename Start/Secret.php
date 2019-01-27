@@ -47,7 +47,7 @@
                     <center>
                         <font size="6"><b>質問項目</b></font>
                         <br>
-                        <select name = "q1" width = "40px" style="font-size:24pt" required>
+                        <select name = "q1" width = "60px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -56,7 +56,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q2" width = "40px" style="font-size:24pt" required>
+                        <select name = "q2" width = "60px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -65,7 +65,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q3" width = "40px" style="font-size:24pt" required>
+                        <select name = "q3" width = "60px" style="font-size:24pt" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
