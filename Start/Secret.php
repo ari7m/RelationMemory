@@ -56,7 +56,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q2" width = "60px" style="font-size:24pt; width: 350pt;" required>
+                        <select name = "q2" style="font-size:24pt; width: 350pt;" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -65,7 +65,7 @@
                             ?>
                         </select> <br /><br />
 
-                        <select name = "q3" width = "60px" style="font-size:24pt; width: 350pt;" required>
+                        <select name = "q3" style="font-size:24pt; width: 350pt;" required>
                             <option value=""></option>
                             <?php
                                 for ($i = 0; $i < 5; $i++) {
@@ -83,13 +83,13 @@
                     <center>
                         <font size="6"><b>回答   </b></font>
                         <br>
-                        <input type="text" name="ID" size="26pt" style="font-size:24pt;" >
+                        <input type="text" name="a1" size="26pt" style="font-size:24pt;" >
                         <br>
                         <br>
-                        <input type="text" name="ID" size="26pt" style="font-size:24pt;" >
+                        <input type="text" name="a2" size="26pt" style="font-size:24pt;" >
                         <br>
                         <br>
-                        <input type="text" name="ID" size="26pt" style="font-size:24pt;" >
+                        <input type="text" name="a3" size="26pt" style="font-size:24pt;" >
                         <br>
                         <br>
                     </center>
