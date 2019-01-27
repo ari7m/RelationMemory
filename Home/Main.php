@@ -60,14 +60,29 @@ $MI_array = count($MI_for_db); // ユーザがもつ管理情報の数を格納
 		</button>
 		
 		<!-- タグの表示部分 -->
+		<?php
+		$sql = 'SELECT tag_id, tag_name FROM tag WHERE user_id = "' .$id. '"';
+		$MI_tag_name = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
+		foreach($MI_tag_name as $tag){
+			$MI_tag_id[] = $tag['tag_id'];
+			$MI_tag_name[] = $tag['tag_name'];
+		}
+		?>
     <ul class="tag">
-      
+      <?php for($i = 0; $i < count($MI_tag_name); $i++): ?>
 			<li id="alltag"><label><input type="radio" name="Tag" style="display:none" onclick="location.href='Main.html'"/>
-				<span>全て</span></label></li>
+				<span>
+					<?php echo $MI_tag_name[$i];?>
+				</span>
+			</label>
+		</li>
+		<?php endfor ?>
+			<!--
 			<li id="tag1"><label><input type="radio" name="Tag" style="display:none" onclick="location.href='Main.html'"/>
 				<span>ソフ工</span></label></li>
 			<li id="tag2"><label><input type="radio" name="Tag" style="display:none" onclick="location.href='Main.html'"/>
 				<span>上司</span></label></li>
+			-->
     </ul>
   </body>
 </html>
