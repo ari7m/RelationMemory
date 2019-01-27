@@ -9,7 +9,7 @@
         // mysqlと接続
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        $sql = 'select count(*) from secret_question_1 where question_1_name = "'. $_POST["a1"]. '"';
+        $sql = 'select count(*) from secret_question_1 where question_1_id = 1';
         $stmt = $link -> query($sql);
         $tf1 = $stmt -> fetchColumn();
         /*foreach ($stmt as $row) {
