@@ -18,8 +18,13 @@
                 and question_2_id = 1 and question_2_ans = "syamu_game"
                 and question_3_id = 1 and question_3_ans = "コンソメ"';
         $stmt = $link -> query($sql);
+        // $tfにはデータがある場合それ、そうじゃないときfalseが入ってる(実験結果)
         $tf = $stmt -> fetchColumn();
-        var_dump($tf);
+        // falseの時の動作
+        if (! $tf) {
+            http_response_code(301);
+            header("Secret.php");
+        }
     ?>
     <script>
         function CheckPassword(repwd){
