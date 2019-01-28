@@ -42,12 +42,10 @@
         $link = new PDO($dsn, 'root');
         $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
         $do = $link -> query($sql);*/
+        http_response_code(301);
+        header('Location: ../Template.html');
     ?>
 </head>
 <body>
-    アカウントができました！
-    <form action = "../Template.html">
-        <input type = "submit" value = "今すぐ始める！！！" />
-    </form>
 </body>
 </html>
