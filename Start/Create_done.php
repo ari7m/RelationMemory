@@ -33,9 +33,9 @@
             ':q1' => $q1,
             ':q2' => $q2,
             ':q3' => $q3,
-            ':ans1' => $answer1,
-            ':ans2' => $answer2,
-            ':ans3' => $answer3
+            ':ans1' => $ans1,
+            ':ans2' => $ans2,
+            ':ans3' => $ans3
         );
         $do -> execute($param);
         /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
