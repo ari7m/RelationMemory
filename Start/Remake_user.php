@@ -21,10 +21,10 @@
         // $tfにはデータがある場合それ、そうじゃないときfalseが入ってる(実験結果)
         $tf = $stmt -> fetchColumn();
         // falseの時の動作
-        if (! $tf) {
-            //http_response_code(301);
+        //if (! $tf) {
+            http_response_code(301);
             header("Secret.php");
-        }
+        //}
     ?>
     <script>
         function CheckPassword(repwd){
