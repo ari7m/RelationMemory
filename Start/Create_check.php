@@ -90,9 +90,9 @@
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br / />
             <?php
-                echo $_POST['answer1'], '<br /><br />';
-                echo $_POST['answer2'], '<br /><br />';
-                echo $_POST['answer3'], '<br /><br />';
+                echo $_POST['ans1'], '<br /><br />';
+                echo $_POST['ans2'], '<br /><br />';
+                echo $_POST['ans3'], '<br /><br />';
              ?>
             <!--ポチ　<br /><br />
             たけし <br /><br />
