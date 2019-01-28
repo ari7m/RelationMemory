@@ -10,11 +10,11 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         // とってきたデータがあるかどうか
-        /*$a1 = $_POST['a1'];
+        $a1 = $_POST['a1'];
         $a2 = $_POST['a2'];
-        $a3 = $_POST['a3'];*/
+        $a3 = $_POST['a3'];
         $sql = 'select user_id from user
-                where question_1_id = 1 and question_1_ans = "緑茶"
+                where question_1_id = 1 and question_1_ans = ""
                 and question_2_id = 1 and question_2_ans = "syamu_game"
                 and question_3_id = 1 and question_3_ans = "コンソメ"';
         $stmt = $link -> query($sql);
@@ -22,6 +22,7 @@
         $tf = $stmt -> fetchColumn();
         // falseの時の動作
         if (! $tf) {
+            $_POST['X'] = true;
             http_response_code(301);
             header('Location: Secret.php');
         }
