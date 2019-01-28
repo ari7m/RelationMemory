@@ -10,9 +10,9 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         // とってきたデータがあるかどうか
-        $a1 = $_POST['a1'];
+        /*$a1 = $_POST['a1'];
         $a2 = $_POST['a2'];
-        $a3 = $_POST['a3'];
+        $a3 = $_POST['a3'];*/
         $sql = 'select user_id from user
                 where question_1_id = 1 and question_1_ans = "ほうじ茶"
                 and question_2_id = 1 and question_2_ans = "syamu_game"
