@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        アカウント完成！！！
+        アカウント！！！(半ギレ)
     </title>
     <meta charset="utf-8" />
     <?php
