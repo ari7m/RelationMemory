@@ -22,7 +22,7 @@
         $tf = $stmt -> fetchColumn();
         // falseの時の動作
         if (! $tf) {
-            http_response_code(301);
+            //http_response_code(301);
             header("Secret.php");
         }
     ?>
