@@ -14,7 +14,7 @@
         $a2 = $_POST['a2'];
         $a3 = $_POST['a3'];*/
         $sql = 'select user_id from user
-                where question_1_id = 1 and question_1_ans = "ほうじ茶"
+                where question_1_id = 1 and question_1_ans = "緑茶"
                 and question_2_id = 1 and question_2_ans = "syamu_game"
                 and question_3_id = 1 and question_3_ans = "コンソメ"';
         $stmt = $link -> query($sql);
