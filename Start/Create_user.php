@@ -117,9 +117,9 @@
 
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br />
-            <input type = "text" name = "answer1" required/> <br /><br />
-            <input type = "text" name = "answer2" required/> <br /><br />
-            <input type = "text" name = "answer3" required/>
+            <input type = "text" name = "ans1" required/> <br /><br />
+            <input type = "text" name = "ans2" required/> <br /><br />
+            <input type = "text" name = "ans3" required/>
         </div>
 
         <div style="clear:both;"></div>
