@@ -17,7 +17,7 @@ $multiArray=array(
 foreach($multiArray as $key=>$value){
             $hurigana[$key]=$value["hurigana"];    
         }
-//配列$ageを並び替える、それに伴って$multilArrayも並び替える
+//配列$huriganaを並び替える、それに伴って$multilArrayも並び替える
 array_multisort($hurigana,SORT_ASC,$multiArray);
 print_r($hurigana);
 ?>
