@@ -19,7 +19,7 @@
                 and question_3_id = 1 and question_3_ans = "コンソメ"';
         $stmt = $link -> query($sql);
         $tf = $stmt -> fetchColumn();
-        echo $tf
+        var_dump($tf);
     ?>
     <script>
         function CheckPassword(repwd){
