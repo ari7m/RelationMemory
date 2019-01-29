@@ -13,6 +13,7 @@ foreach ($stmt as $row){
 
 
 }
+var_dump($user_id);
 ?>
 
 <!DOCTYPE HTML>
