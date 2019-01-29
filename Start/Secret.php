@@ -41,9 +41,9 @@
         <font size="7"><p>　　　　秘密の質問を選択</p></font>
         <center>
             <?php
-            if (isset($_POST['X']) && $_POST['X']){
+            //if (isset($_POST['X']) && $_POST['X']){
                 echo '<font color = "red"><b>入力データは存在しません！！！！！(半ギレ)</b></font>';
-            }
+            //}
              ?>
         </center>
         <!--　1/2分割テーブルの作成 -->
