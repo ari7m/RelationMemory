@@ -14,6 +14,8 @@ try {
      exit;
 }
 
+$id = $_SESSION['id'];
+
 // 苗字(surname)と名前(name), 写真(image)をDBより取得
 $sql = 'SELECT surname, name, image FROM info_a WHERE user_id = "' .$id.'"';
 $MI_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
