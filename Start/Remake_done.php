@@ -23,6 +23,7 @@
         $params = array(':name' => $name, ':pwd' => $pwd, ':id' => $ID);
         $do -> execute($params);*/
         $do = $link -> query($sql);
+        echo "test";
         http_response_code(301);
         //header('Location: ../Template.html');
     ?>
