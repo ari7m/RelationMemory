@@ -23,11 +23,11 @@ $user_pwd = $row["user_pwd"];
    
       <?php
       
-      $sql =" DELETE FROM info_a WHERE user_id = '$user_id'";
-      $delete_info_a = $dbh -> query($sql);
+      $sql =" DELETE FROM info_b WHERE user_id = '$user_id'";
+      $delete_info_b = $dbh -> query($sql);
 
-      $sql =" DELETE FROM item WHERE user_id = '$user_id'";
-      $delete_item = $dbh -> query($sql);
+       $sql =" DELETE FROM info_a WHERE user_id = '$user_id'";
+      $delete_info_a = $dbh -> query($sql);
 
       $sql =" DELETE FROM tag WHERE user_id ='$user_id'";
         $delete_tag = $dbh -> query($sql);
