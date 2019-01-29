@@ -10,19 +10,19 @@
         session_start();
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        // とってきたデータがあるかどうか
+        // user_idの取得　がんばえー
         $a1 = $_POST['a1'];
         $a2 = $_POST['a2'];
         $a3 = $_POST['a3'];
         $sql = 'select user_id from user
-                where question_1_id = 1 and question_1_ans = ""
-                and question_2_id = 1 and question_2_ans = "syamu_game"
-                and question_3_id = 1 and question_3_ans = "コンソメ"';
+                where question_1_id = 1 and question_1_ans = "'. $a1. '"
+                and question_2_id = 1 and question_2_ans = "'. $a2. '"
+                and question_3_id = 1 and question_3_ans = "'. $a3. '"';
         $stmt = $link -> query($sql);
-        // $tfにはデータがある場合それ、そうじゃないときfalseが入ってる(実験結果)
-        $tf = $stmt -> fetchColumn();
+        // $tfにはデータがある場合それ、そうじゃないときfalseが入る(実験結果)
+        $result = $stmt -> fetchColumn();
         // falseの時の動作
-        if (! $tf) {
+        if (! $result) {
             $_SESSION['X'] = true;
             http_response_code(301);
             header('Location: Secret.php');
@@ -48,6 +48,7 @@
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             ユーザ名(全角)<br /><br />
+            ユーザID<br /><br />
             パスワード(半角英数字と記号) <br /><br />
             パスワードの再入力
         </div>
@@ -58,6 +59,9 @@
 
         <div align = "left" style="float:left;width:45%;">
             <input type = "text" name = "name" maxlength = "256" pattern = "[^\x20-\x7E\xA1-\xDF]*" required/> <br /><br />
+            <?php
+            echo '$result<br /><br />'
+             ?>
             <input type = "password" name = "pwd" id = "pwd" maxlength = "256" pattern = "^[!-~]+$" required/> <br /><br />
             <input type = "password" name = "repwd" id = "repwd" oninput="CheckPassword(this)" required/>
         </div>
