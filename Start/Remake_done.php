@@ -17,9 +17,10 @@
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $sql = 'update rmdb.user set (user_name = "'. $name. '" user_password = "'. $pwd. '")
-                where user_id = "'. $ID. '"';
-        $do = $link -> query($sql);
+        $sql = 'update rmdb.user set (user_name = :name, user_password = ::pwd) where user_id = :id';
+        $stmt = $link -> prepare($sql);
+        $params = array(':name' => $name, ':pwd' => $pwd, ':id' => $ID);
+        $stmt -> execute($params);
         http_response_code(301);
         header('Location: ../Template.html');
     ?>
