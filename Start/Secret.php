@@ -42,7 +42,7 @@
         <font size="7"><p>　　　　秘密の質問を選択</p></font>
         <center>
             <?php
-            if ($_SESSION['X']){
+            if (isset($_SESSION['X']) and $_SESSION['X']){
                 echo '<font color = "red"><b>入力データは存在しません！！！！！(半ギレ)</b></font>';
                 $_SESSION['X'] = false;
             }
