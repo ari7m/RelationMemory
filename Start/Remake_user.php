@@ -45,7 +45,7 @@
 </head>
 
 <body>
-    <form action = "Create_check.php" method = "post">
+    <form action = "Remake_check.php" method = "post">
     <div align = "center">
         <div style="float:left;width:45%;" align = "right">
             ユーザ名(全角)<br /><br />
