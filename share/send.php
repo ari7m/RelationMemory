@@ -30,7 +30,7 @@ $result = '送信できませんでした。宛先ID、合言葉を正しく設�
 for($i = 1; $i < $cnt ;$i++ ){
  if(!empty($_POST['chkbox'.$i])){ //post != null
 	   $M_id =  $_POST['chkbox'.$i];
-	   $sql = "insert ignore into share values('$user_id','$receve_id','$M_id','$aikotoba')";
+	   $sql = "insert ignore into share values('$user_id','$receve_id','$aikotoba','$M_id')";
 	   $share =  $dbh -> query($sql);
 	   $check++;
 	   }
