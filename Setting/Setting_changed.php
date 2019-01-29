@@ -8,13 +8,13 @@
 <?php
 
  include "access_db.php";
-  $sql = "select * from user where user_id = 'abc123' ";
-     $stmt = $dbh -> query($sql);	   
-    
+  $sql = "select * from user where user_id = '". $ID. "' ";
+     $stmt = $dbh -> query($sql);
+
         foreach ($stmt as $row){
         $user_id = $row["user_id"]; // user_idの確保
 	}
-	
+
   if($_POST['user'] == ""){
     $changed_name = '変更なし';
   } else {
@@ -29,7 +29,7 @@
     $sql =" update user set user_pwd =' $changed_pwd' WHERE user_id = '$user_id' ";
    $upd =  $dbh -> query($sql);
   }
-  
+
   ?>
 <html>
   <meta charset="utf-8">
@@ -54,7 +54,7 @@
       <?php echo $changed_pwd;?>
     </div>
     <div style="clear:both;"></div>
-    
+
     <br /><br />
     <input type= "button" value = "ホームへ戻る" onclick = " location.href = 'Main.html' " id = "button">
     　　　

@@ -1,12 +1,14 @@
 <?php
+session_start();
+$ID = $_SESSION['ID'];
   include "access_db.php"; // データベース取得
-  $sql = "select * from user where user_id = 'abc123'"; 
-  $stmt = $dbh -> query($sql);	   
+  $sql = "select * from user where user_id = '". $ID. "'"; 
+  $stmt = $dbh -> query($sql);
 
   foreach ($stmt as $row){
   $user_id = $row["user_id"]; // user_idの確保
   }
-  
+
 ?>
 <html>
   <?php
@@ -28,6 +30,3 @@
     location.href = 'Setting_tag.php';
      </script>
 </html>
-
-
-
