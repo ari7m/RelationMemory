@@ -56,6 +56,6 @@ if($_POST['pwd'] == ""){
         <div style="clear:both;"></div>
 
         <br /><br />
-        <input type= "button" value = "ホームへ戻る" onclick = " location.href = 'Main.html' " id = "button">
+        <input type= "button" value = "ホームへ戻る" onclick = " location.href = '../Template.html' " id = "button">
 
         </html>
