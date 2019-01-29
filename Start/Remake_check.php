@@ -13,6 +13,7 @@
         session_start();
         $_SESSION['name'] = $_POST['name'];
         $_SESSION['pwd'] = $_POST['pwd'];
+
     ?>
 </head>
 <body>
@@ -32,7 +33,7 @@
             <div align = "left" style="float:left;width:45%;">
                 <?php
                     echo $_POST['name'], '<br /><br />';
-                    echo $_POST['ID'], '<br /><br />';
+                    echo $_SESSION['ID'], '<br /><br />';
                     $str = $_POST['pwd'];
                     $len = strlen($str);
                     for ($i = 0, $hid = ''; $i < $len; $i++) {
