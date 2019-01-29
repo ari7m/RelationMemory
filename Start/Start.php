@@ -12,9 +12,7 @@ define('DB_USER', 'wolf');
 define('DB_PASSWORD', 'password');
 
 try {
-     //$dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
-     $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-     $dbh = new PDO($dsn, 'root');
+     $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
      echo $e->getMessage();
@@ -33,7 +31,7 @@ if(isset($_POST['login'])){
     // dbから得られたログイン情報を格納
     $result = $dbh -> query($sql) -> fetch(PDO::FETCH_ASSOC);
     if($result != null){
-        $_SESSION["ID"] = $user_id;
+        $_SESSION["id"] = $user_id;
         header("Location: ../Template.html");
         exit;
     }
