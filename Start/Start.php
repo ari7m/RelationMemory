@@ -30,7 +30,7 @@ if(isset($_POST['login'])){
     // dbから得られたログイン情報を格納
     $result = $dbh -> query($sql) -> fetch(PDO::FETCH_ASSOC);
     if($result != null){
-        $_SESSION["id"] = $user_id;
+        $_SESSION["ID"] = $user_id;
         header("Location: ../Template.html");
         exit;
     }
