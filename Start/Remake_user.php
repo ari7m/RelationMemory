@@ -22,7 +22,7 @@
         $tf = $stmt -> fetchColumn();
         // falseの時の動作
         if (! $tf) {
-            $_POST['X'] = true;
+            $_SESSION['X'] = true;
             http_response_code(301);
             header('Location: Secret.php');
         }
