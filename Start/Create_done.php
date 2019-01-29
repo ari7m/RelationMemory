@@ -15,7 +15,6 @@
         $q2 = $_SESSION['q2'];
         $q3 = $_SESSION['q3'];
         $ans1 = $_SESSION['ans1'];
-        var_dump($ans1);
         $ans2 = $_SESSION['ans2'];
         $ans3 = $_SESSION['ans3'];
 
