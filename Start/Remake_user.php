@@ -21,6 +21,7 @@
         $stmt = $link -> query($sql);
         // $tfにはデータがある場合それ、そうじゃないときfalseが入る(実験結果)
         $result = $stmt -> fetchColumn();
+        $_SESSION['ID'] = $result;
         // falseの時の動作
         if (! $result) {
             $_SESSION['X'] = true;
