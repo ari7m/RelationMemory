@@ -16,11 +16,12 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $sql = 'update rmdb.user set (user_name = :name, user_password = :pwd) where user_id = :id';
-        $stmt = $link -> prepare($sql);
+        //$link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $sql = 'update rmdb.user set (user_name = "'. $name. '", user_password = "'. $pwd. '") where user_id = "'. $ID. '"';
+        /*$do = $link -> prepare($sql);
         $params = array(':name' => $name, ':pwd' => $pwd, ':id' => $ID);
-        $stmt -> execute($params);
+        $do -> execute($params);*/
+        $do = $link -> query($sql);
         http_response_code(301);
         header('Location: ../Template.html');
     ?>
