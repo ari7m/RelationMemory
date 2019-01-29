@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        アカウント！！！(半ギレ)
+        アカウント！
     </title>
     <meta charset="utf-8" />
     <?php
@@ -12,18 +12,13 @@
         $ID = $_SESSION['ID'];
         $pwd = $_SESSION['pwd'];
 
-        // DBにデータの登録
+        // DBにデータの設定
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
-        //$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //$link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        // アップデート
         $sql = 'update user set user_name = "'. $name. '", user_password = "'. $pwd. '" where user_id = "'. $ID. '"';
-        /*$do = $link -> prepare($sql);
-        $params = array(':name' => $name, ':pwd' => $pwd, ':id' => $ID);
-        $do -> execute($params);*/
         $do = $link -> query($sql);
-        var_dump($do);
-        //echo "test";
+        // 自動遷移
         http_response_code(301);
         header('Location: ../Template.html');
     ?>
