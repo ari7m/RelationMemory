@@ -11,9 +11,9 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         // user_idの取得　がんばえー
-        $a1 = $_POST['q1'];
-        $a2 = $_POST['q2'];
-        $a3 = $_POST['q3'];
+        $q1 = $_POST['q1'];
+        $q2 = $_POST['q2'];
+        $q3 = $_POST['q3'];
         $a1 = $_POST['a1'];
         $a2 = $_POST['a2'];
         $a3 = $_POST['a3'];
