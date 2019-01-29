@@ -17,7 +17,7 @@
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $sql = 'update rmdb.user set (:name, :pwd) where user_id = :ID';
+        $sql = 'update rmdb.user set (:name, :pwd) where user_id = (:ID)';
         $do = $link -> prepare($sql);
         $param = array(
             ':name' => $name,
