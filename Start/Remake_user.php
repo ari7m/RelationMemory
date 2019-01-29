@@ -18,21 +18,21 @@
             $a1 = $_POST['a1'];
             $a2 = $_POST['a2'];
             $a3 = $_POST['a3'];
-        }
-        $sql = 'select user_id from user
+            $sql = 'select user_id from user
                 where question_1_id = '. $q1. ' and question_1_ans = "'. $a1. '"
                 and question_2_id = '. $q2. ' and question_2_ans = "'. $a2. '"
                 and question_3_id = '. $q2. ' and question_3_ans = "'. $a3. '"';
-        $stmt = $link -> query($sql);
-        // $tfにはデータがある場合それ、そうじゃないときfalseが入る(実験結果)
-        $result = $stmt -> fetchColumn();
-        // falseの時の動作
-        if (isset($result) and !$result) {
-            $_SESSION['X'] = true;
-            http_response_code(301);
-            header('Location: Secret.php');
+            $stmt = $link -> query($sql);
+            // $tfにはデータがある場合それ、そうじゃないときfalseが入る(実験結果)
+            $result = $stmt -> fetchColumn();
+            // falseの時の動作
+            if (!$result) {
+                $_SESSION['X'] = true;
+                http_response_code(301);
+                header('Location: Secret.php');
+            }
+            $_SESSION['ID'] = $result;
         }
-        $_SESSION['ID'] = $result;
     ?>
     <script>
         function CheckPassword(repwd){
