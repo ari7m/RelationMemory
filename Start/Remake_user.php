@@ -66,8 +66,12 @@
         <div align = "left" style="float:left;width:45%;">
             <input type = "text" name = "name" maxlength = "256" pattern = "[^\x20-\x7E\xA1-\xDF]*" required/> <br /><br />
             <?php
-            echo $result. '<br /><br />';
-             ?>
+            if ($_SESSION['ID']) {
+                echo $_SESSION['ID']. '<br /><br />';
+            } else {
+                echo $result. '<br /><br />';
+            }
+            ?>
             <input type = "password" name = "pwd" id = "pwd" maxlength = "256" pattern = "^[!-~]+$" required/> <br /><br />
             <input type = "password" name = "repwd" id = "repwd" oninput="CheckPassword(this)" required/>
         </div>
