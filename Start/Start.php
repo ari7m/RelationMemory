@@ -11,7 +11,7 @@ define('DB_NAME', 'rmdb');
 define('DB_USER', 'root');
 
 try {
-     $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, $options);
+$dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, 'charset=utf8'/*$options*/);
      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
      echo $e->getMessage();
