@@ -36,7 +36,7 @@ foreach ($stmt as $row){
         </div>
 
         <div style="float:left;width:10%;">
-            <!--ここ全角スペース-->
+            &nbsp;<!--ここ半角スペース-->
         </div>
         <form action="Setting_changed.php" method="post" name = "form1">
             <div align = "left" style="float:left;width:55%;">
