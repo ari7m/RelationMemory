@@ -8,11 +8,10 @@ $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'rmdb');
-define('DB_USER', 'wolf');
-define('DB_PASSWORD', 'password');
+define('DB_USER', 'root');
 
 try {
-     $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
+     $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, $options);
      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
      echo $e->getMessage();
@@ -25,7 +24,7 @@ if(isset($_POST['login'])){
 //if($_POST){
     $user_id = $_POST['id'];
     $user_pw = $_POST['inputPassword'];
-    
+
     // ユーザアカウントテーブルから一致するid,pwを含むデータを特定
     $sql  = 'SELECT user_id, user_name FROM user WHERE user_id = "' .$user_id. '" AND user_password = "' .$user_pw. '"';
     // dbから得られたログイン情報を格納
