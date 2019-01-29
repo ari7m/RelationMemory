@@ -11,23 +11,26 @@
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         // user_idの取得　がんばえー
+        $a1 = $_POST['q1'];
+        $a2 = $_POST['q2'];
+        $a3 = $_POST['q3'];
         $a1 = $_POST['a1'];
         $a2 = $_POST['a2'];
         $a3 = $_POST['a3'];
         $sql = 'select user_id from user
-                where question_1_id = 1 and question_1_ans = "'. $a1. '"
-                and question_2_id = 1 and question_2_ans = "'. $a2. '"
-                and question_3_id = 1 and question_3_ans = "'. $a3. '"';
+                where question_1_id = '. $q1. ' and question_1_ans = "'. $a1. '"
+                and question_2_id = '. $q2. ' and question_2_ans = "'. $a2. '"
+                and question_3_id = '. $q2. ' and question_3_ans = "'. $a3. '"';
         $stmt = $link -> query($sql);
         // $tfにはデータがある場合それ、そうじゃないときfalseが入る(実験結果)
         $result = $stmt -> fetchColumn();
-        $_SESSION['ID'] = $result;
         // falseの時の動作
-        if (! $result) {
+        if (isset($result) and !$result) {
             $_SESSION['X'] = true;
             http_response_code(301);
             header('Location: Secret.php');
         }
+        $_SESSION['ID'] = $result;
     ?>
     <script>
         function CheckPassword(repwd){
