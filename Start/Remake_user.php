@@ -7,6 +7,7 @@
     </h2>
     <?php
         // mysqlと接続
+        session_start();
         $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         // とってきたデータがあるかどうか

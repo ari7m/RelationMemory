@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="Mitame.css">
     <title>秘密の質問回答画面</title>
     <?php
+    session_start();
     $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
     $link = new PDO($dsn, 'root');
     //データをとってsそれぞれ配列$nameX[]へ
@@ -41,7 +42,7 @@
         <font size="7"><p>　　　　秘密の質問を選択</p></font>
         <center>
             <?php
-            if (isset($_SESSION['X']) && $_SESSION['X']){
+            if ($_SESSION['X']){
                 echo '<font color = "red"><b>入力データは存在しません！！！！！(半ギレ)</b></font>';
                 $_SESSION['X'] = false;
             }
