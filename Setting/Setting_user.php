@@ -28,7 +28,7 @@ foreach ($stmt as $row){
 
     <div align = "center">
 
-        <div style="float:left;width:35%;" align = "right">
+        <div style="float:left;width:45%;" align = "right">
             ユーザ名 <br /><br />
             ユーザ名の変更<br /><br />
             パスワードの変更<br /><br />
@@ -39,7 +39,7 @@ foreach ($stmt as $row){
             &nbsp;<!--ここ半角スペース-->
         </div>
         <form action="Setting_changed.php" method="post" name = "form1">
-            <div align = "left" style="float:left;width:55%;">
+            <div align = "left" style="float:left;width:45%;">
                 <?php echo $user_name; ?> <br /><br >
 
                 <input type = "text" name = "user"  style="width:250px;"/> <br /><br />
