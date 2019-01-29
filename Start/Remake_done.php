@@ -18,12 +18,12 @@
         //$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //$link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $sql = "update rmdb.user set (user_name = ' $name ', user_password = ' $pwd ') where user_id = ' $ID '";
-        var_dump($sql);
+        //var_dump($sql);
         /*$do = $link -> prepare($sql);
         $params = array(':name' => $name, ':pwd' => $pwd, ':id' => $ID);
         $do -> execute($params);*/
         $do = $link -> query($sql);
-        echo "test";
+        //echo "test";
         http_response_code(301);
         //header('Location: ../Template.html');
     ?>
