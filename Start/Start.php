@@ -8,10 +8,13 @@ $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'rmdb');
-define('DB_USER', 'root');
+define('DB_USER', 'wolf');
+define('DB_PASSWORD', 'password');
 
 try {
-$dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, 'charset=utf8'/*$options*/);
+     //$dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
+     $dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
+     $dbh = new PDO($dsn, 'root');
      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
      echo $e->getMessage();
