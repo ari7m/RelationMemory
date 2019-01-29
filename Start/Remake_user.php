@@ -70,6 +70,7 @@
         <div style="clear:both;"></div>
     </div>
     <div align = "center">
+        <br /><br />
         <div>
             <input  id = "green" type = "submit" value = "登録確認へ">
         </div>
