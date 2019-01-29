@@ -25,7 +25,7 @@
         var_dump($do);
         //echo "test";
         http_response_code(301);
-        //header('Location: ../Template.html');
+        header('Location: ../Template.html');
     ?>
 </head>
 <body>
