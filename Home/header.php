@@ -2,6 +2,8 @@
     session_start();
     
     // DBと接続
+
+    //$id = '1';
     /*
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
     define('DB_HOST', 'localhost');
@@ -16,11 +18,49 @@
          exit();
     }
     */
-
+    
     include "../Setting/access_db.php";
 
     $id = $_SESSION['ID'];
     //echo $id;
+
+    if(isset($_POST['search_start'])){
+        if(isset($_POST['keywords'])){
+            $asql = "SELECT * FROM info_a WHERE user_id = $id AND (surname LIKE '%".$_POST["keywords"]."%' 
+                                                                    OR name LIKE '%".$_POST["keywords"]."%' 
+                                                                    OR surname_ruby LIKE '%".$_POST["keywords"]."%' 
+                                                                    OR name_ruby LIKE '%".$_POST["keywords"]."%'
+                                                                    )";
+            $bsql = "SELECT * FROM info_b WHERE user_id = $id AND (blood_type LIKE '%".$_POST["keywords"]."%'
+                                                                    OR feature LIKE '%".$_POST["keywords"]."%'
+                                                                    OR hobby LIKE '%".$_POST["keywords"]."%'
+                                                                    OR met_space LIKE '%".$_POST["keywords"]."%'
+                                                                    OR free_space LIKE '%".$_POST["keywords"]."%'
+                                                                    )";
+        } else {
+            $asql = "SELECT manage_id FROM info_a WHERE user_id = $id";
+            $bsql = "SELECT manage_id FROM info_b WHERE user_id = $id";
+        }
+        $ksql = $dbh -> query($asql) -> fetchALL(PDO::FETCH_ASSOC);
+        foreach($ksql as $key){
+            //echo $key['manage_id'];
+            $akey_MI[] = $key['manage_id'];
+        }
+        //var_dump($akey_MI);
+        $ksql = $dbh -> query($bsql) -> fetchALL(PDO::FETCH_ASSOC);
+        foreach($ksql as $key){
+            //echo $key['manage_id'];
+            $akey_MI[] = $key['manage_id'];
+        }
+        //var_dump($akey_MI);
+        //重複の削除
+        $key_MI = array_unique($akey_MI);
+        //var_dump($key_MI);
+        //配列の要素が重複を削除したことで抜けてる部分ができるため再振り分け
+        $_SESSION['manage_id'] = (array_values($key_MI));
+        //var_dump(array_values($key_MI));
+    }
+    
     
     if(isset($_GET['logout']) === true){
         //pirnt_r($_GET);
@@ -50,9 +90,9 @@
 
         <!-- 検索フォーム -->
         <div class = "header_place">
-            <form id = "form">
-              <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
-              <input id="sbtn" type="submit" value="検索" />
+            <form id = "form" method="post">
+              <input id="sbox"  id="keywords" name="keywords" type="text" placeholder="キーワードを入力" value=""/>
+              <input id="sbtn" type="submit" href="../Search/Search_result.php" target ="frame3" name="search_start" value="検索" />
             </form>
         </div>
 

@@ -1,8 +1,8 @@
 <?php
 	//IDのひきわたし
 	session_start();
-	//$ID = $_SESSION['ID'];
-	$ID = '1';
+	$ID = $_SESSION['ID'];
+	
 	$options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
 	define('DB_HOST', 'localhost');
 	define('DB_NAME', 'rmdb');
@@ -15,6 +15,7 @@
 		echo $e->getMessage();
 		exit;
 	}
+
 	//検索ボタンを押したらこれが始まる
 	if (isset($_POST['search_start'])){
 		
@@ -444,7 +445,7 @@
 			<!--ラベル4の終了-->
 				<div class="search">
 			<!--<a id="lsearch" href="Main.html" target="frame3" name="search_start">検索-->
-					<input type = "submit" href="Search_result.php" target="frame3" value = "検索" id = "lsearch" name = "search_start">
+					<input type = "submit" href="../Search/Search_result.php" target="frame3" value = "検索" id = "lsearch" name = "search_start">
 				</div>
 			</div>
 		</form>
