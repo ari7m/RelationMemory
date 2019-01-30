@@ -7,40 +7,72 @@ if ($mysqli->connect_error) {
 } else {
     $mysqli->set_charset("utf8");
 }
-//----------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------
+/*
+$link = mysqli_connect($host, $username, $passwd, $dbname);
+
+// 接続成功した場合
+if ($link) {
+
+    // 文字化け防止
+    mysqli_set_charset($link, 'utf8');
+
+    $query = 'SELECT goods_name, price FROM goods_table ORDER BY price ' . $order;
+
+    // クエリを実行
+    $result = mysqli_query($link, $query);
+
+    // 1行ずつ結果を配列で取得
+    while ($row = mysqli_fetch_array($result)) {
+        $goods_data[] = $row;
+    }
+
+    mysqli_free_result($result);
+
+    // 接続を閉じる
+    mysqli_close($link);
+
+// 接続失敗した場合
+} else {
+    print 'DB接続失敗';
+}
+*/
+//----------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------
 $multiArray=array(
-//名前,年齢,ふりがな,登録日時
+//名前,年齢,ふりがな,性別
             "河野 雄也"=>
-	    array("name"=>"こうの","age"=>21,"sex"=>"男","hurigana"=>"コウノ"),
+	    array("name"=>"こうの","age"=>21,"sex"=>"male","hurigana"=>"コウノ"),
 	    
             "有薗 里奈"=>
-	    array("name"=>"ありぞの","age"=>16,"sex"=>"女","hurigana"=>"アリゾノ"),
+	    array("name"=>"ありぞの","age"=>16,"sex"=>"female","hurigana"=>"アリゾノ"),
 	    
             "高橋 慎也"=>
-	    array("name"=>"たかはし","age"=>4, "sex"=>"男","hurigana"=>"タカハシ"),
+	    array("name"=>"たかはし","age"=>4, "sex"=>"male","hurigana"=>"タカハシ"),
 	    
             "引本 匡磨"=>
-	    array("name"=>"ひきもと","age"=>38,"sex"=>"男","hurigana"=>"ヒキモト"),
+	    array("name"=>"ひきもと","age"=>38,"sex"=>"male","hurigana"=>"ヒキモト"),
 	    
             "南部 美希奈"=>
-	    array("name"=>"なんぶ","age"=>32,"sex"=>"女","hurigana"=>"ナンブ"),
+	    array("name"=>"なんぶ","age"=>32,"sex"=>"female","hurigana"=>"ナンブ"),
 	    
             "堀 　絢香"=>
-	    array("name"=>"ほり","age"=>45,"sex"=>"女","hurigana"=>"ホリ"),
+	    array("name"=>"ほり","age"=>45,"sex"=>"female","hurigana"=>"ホリ"),
 	    
             "伊藤 佑樹"=>
-	    array("name"=>"いとう","age"=>14,"sex"=>"男","hurigana"=>"イトウ"),
+	    array("name"=>"いとう","age"=>14,"sex"=>"male","hurigana"=>"イトウ"),
 	    
 	    "アンソニー"=>
-	    array("name"=>"あんそにー","age"=>45,"sex"=>"男","hurigana"=>"Ansny"),
+	    array("name"=>"あんそにー","age"=>45,"sex"=>"male","hurigana"=>"Ansny"),
 	    
             "レベッカ"=>
-	    array("name"=>"れべっか","age"=>14,"sex"=>"女","hurigana"=>"Lebekka")
+	    array("name"=>"れべっか","age"=>14,"sex"=>"female","hurigana"=>"Lebekka")
         );
+//-------------------------------------------------------------------------------------
 
-
-//------------------------------------------------------------------------------
 //以下ソートプログラム
+
 // 文字列の大文字小文字を区別しない
 foreach($multiArray as $key=>$value){
             $age[$key]=$value["age"];    
@@ -53,11 +85,15 @@ array_multisort($age,SORT_ASC,$multiArray);
 print_r($age); 
 
 //-----------------------------------------------------------------------------
-$sql = 'SELECT NAME, AGE, WEIGHT FROM TAMESI1'; //データの追加も行える
+$sql = 'SELECT NAME, AGE, WEIGHT FROM TAMESI1'; //データの追加も行える(不安定)
 if ($result = $mysqli->query($sql)) {
     // 連想配列を取得
     while ($row = $result->fetch_assoc()) {
-        echo $row['name'] . ', ' . $row['age'] . ', ' . $row['sex'] . ', ' . $row['hurigana'] . '<br />';
+     echo $row['name'] . ', '
+	. $row['age'] . ', '
+	. $row['sex'] . ', '
+	. $row['hurigana']
+	. '<br />';
     }
     // 結果セットを閉じる
     $result->close();
@@ -66,7 +102,7 @@ if ($result = $mysqli->query($sql)) {
 // DB接続を閉じる
 $mysqli->close();
 
-/*
+/*---------------------------------------------------------------------------------------
 // ひな型を介してステートメントハンドルを取得した追加方法
 $sql = "INSERT INTO TAMESI1 (name, age, sex , hurigana) VALUES (?, ?, ? , ?)";
 if ($stmt = $mysqli->prepare($sql)) {
@@ -83,6 +119,6 @@ if ($stmt = $mysqli->prepare($sql)) {
 
     $stmt->close();
 }
-*/
+-----------------------------------------------------------------------------------------*/
 
 ?>
