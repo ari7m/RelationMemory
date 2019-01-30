@@ -61,10 +61,8 @@
                     }
                   $cnt = $cnt + 1;
                   }
-                  ?>> class="image">
+                  ?> class="image">
                   
-
-
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $MI_manage_id[$i]?>'">
                     <?php
                         //名前の表示
