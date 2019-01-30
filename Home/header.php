@@ -89,7 +89,7 @@
                   <li><a href="../Setting/Setting_tag.php" target="frame3">登録情報の設定</a></li>
                   <li>
                       <input type='hidden' onclick="return disp();" target="_top" name="logout" value="logout">
-                      <a href="logout.php">ログアウト</a>
+                      <a href="logout.php" target="_blank">ログアウト</a>
                   </li>
               </form>
           </ul>
