@@ -141,7 +141,8 @@ ini_set('display_errors', 0);
     $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
     //実行
     $stmt->execute();
-    header("location: ../Home/Main.php");
+    header('location: ../Home/Main.php');
+    exit;
   }
 
 ?>
@@ -290,7 +291,7 @@ ini_set('display_errors', 0);
                         <select name = "tag_id">
                           <?php
                           $dbh = new PDO($dsn, $user, $pass);
-                          $stmt3 = $dbh->prepare('SELECT tag_name FROM tag');
+                          $stmt3 = $dbh->prepare("SELECT tag_name FROM tag WHERE user_id = $ID");
                           $stmt3->execute();
                           $tag_name = $stmt3->fetchAll(PDO::FETCH_ASSOC);
                           $k = 0;
