@@ -123,7 +123,7 @@ try {
       ':birth_day' => $birth_day, ':met_year'=>$met_year, ':met_month'=> $met_month, ':met_day' => $met_day, ':image' => $img ,':hobby'=> $hobby, ':feature'=>$feature, ':met_space' => $met_space ,
       ':free_space' => $free_space, ':id' => $manage_id);
       $stmt->execute($params);
-
+      header("location: ./Home/Main.php");
     } else {
 
       //画像を更新しない場合
@@ -181,6 +181,7 @@ try {
       ':birth_day' => $birth_day, ':met_year'=>$met_year, ':met_month'=> $met_month, ':met_day' => $met_day, ':hobby'=> $hobby, ':feature'=>$feature, ':met_space' => $met_space ,
       ':free_space' => $free_space, ':id' => $manage_id);
       $stmt->execute($params);
+      header("location: ./Home/Main.php");
     }
   }
 
@@ -197,6 +198,7 @@ try {
     $params = array(':id'=>$manage_id);
     // 削除するレコードのIDが入った変数をexecuteにセットしてSQLを実行
     $stmt3->execute($params);
+    header("location: ./Home/Main.php");
   }
 
   // 接続を閉じる
@@ -804,7 +806,7 @@ try {
                       <p class = "button">
                         <input type = "submit" value = "更新" id = "submit" name = "submit">
                         <input type = "submit" value = "削除" id = "close" name = "delete">
-                        <input type = "button" onClick='history.back();' value = "キャンセル" id = "submit">
+                        <input type = "button" onClick='history.back();' value = "キャンセル" id = "submit" onclick="location.href='/Home/Main.php'">
                       </p>
                     </div>
                   </body>
