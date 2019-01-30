@@ -38,7 +38,7 @@ foreach ($stmt as $row){
 
     ?>
     <script>
-    location.href = location.href = '../Start/Start.html';
+    location.href = location.href = '../Start/Start.php';
 
     </script>
 
