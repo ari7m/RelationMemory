@@ -21,11 +21,13 @@
 
     $id = $_SESSION['ID'];
     echo $id;
+    /*
     if(isset($_GET['logout']) === true){
         //pirnt_r($_GET);
         header('location: logout.php');
         exit();
     }
+    */
 ?>
 
 <!DOCTYPE html>
