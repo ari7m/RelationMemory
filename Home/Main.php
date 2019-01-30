@@ -11,9 +11,9 @@
     /* タグが押されたかどうかの判断。押された場合そのタグのidが格納される */
     if(!empty($_POST['Tag'])){
         $tag = $_POST['Tag'];
-        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" AND tag_id = "' .$tag. '"';
+        $sql = "SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = $id AND tag_id = $tag";
     }else{
-        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" ';
+        $sql = "SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = $id";
     }
 
     $MI_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
@@ -25,7 +25,7 @@
         $MI_image[] = $MI['image'];
 
         //$MI_array = count($MI_for_db); // ユーザがもつ管理情報の数を格納
-    }
+
 ?>
 
 <!DOCTYPE HTML>
@@ -39,13 +39,12 @@
     <body>
         <form action ='Main.php' method='post'>
         <!-- 管理情報を表示 -->
-        <?php echo 'hogeeeeeeee!!!!!!!!!!!!!!!!!';?>
     	<?php for($i = 0; $i < count($MI_for_db); $i++):?>
             <span class ="container">
                 <div class="main">
+                  <div class = "image">
                   <?php
-                  if(isset($MI_manage_id[$i])){
-                  $sqll = "SELECT image FROM info_a where manage_id = $i+1";
+                  $sqll = "SELECT image FROM info_a where user_id = $id ";
                   $stmtl = $dbh->prepare($sqll);
                   $stmtl->execute();
                   $row3 = $stmtl->fetch(PDO::FETCH_ASSOC);
@@ -54,9 +53,6 @@
                     $DB_PIC_ARRAY[] = $row3['image'];
                   }
                   $cnt = 0;
-                  ?>
-                  <div class = "image">
-                  <?php
                   foreach($DB_PIC_ARRAY as $pic){
                     $enc_img = base64_encode($pic);
                     $imginfo = getimagesize('data:application/octet-stream;base64,' . $enc_img);
@@ -65,7 +61,6 @@
                   }
                   $cnt = $cnt + 1;
                   }
-                }
                   ?>
                   </div>
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $i + 1 ?>'">
