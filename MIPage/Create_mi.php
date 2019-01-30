@@ -2,25 +2,11 @@
 ini_set('display_errors', 0);
 
 session_start();
+include "../Setting/access_db.php";
 $ID = $_SESSION['ID'];
 // 接続テスト用ファイル
-$dsn = 'mysql:host=localhost;dbname=rmdb';
-$user = 'Konaien';
-$pass = 'HtBM-923';
+ini_set('display_errors', 0);
 
-try {
-  // MySQLへの接続
-  $dbh = new PDO($dsn, $user, $pass);
-
-  // 接続を使用する
-  $sth = $dbh->query('SELECT * from foo');
-  echo "<pre>";
-  foreach((array)$sth as $row) {
-    print_r($row);
-  }
-  echo "</pre>";
-
-  //
   $stmt0 = $dbh->prepare('SELECT user_id FROM user');
   $stmt0->execute();
   $user_id = $stmt0->fetchAll(PDO::FETCH_ASSOC);
@@ -155,15 +141,9 @@ try {
     $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
     //実行
     $stmt->execute();
-    header("location: ./Home/Main.php");
+    header("location: ../Home/Main.php");
   }
-  //接続を閉じる
-  $sth = null;
-  $dbh = null;
-} catch (PDOException $e) { // PDOExceptionをキャッチする
-  print "エラー!: " . $e->getMessage() . "<br/gt;";
-  die();
-}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -212,7 +192,7 @@ try {
           顔写真<br>
           <!--画像登録フォーム-->
           <img id="img1" style="width:200px;height:200px;" />
-          <input type="file" id="myfile" name = "image" accept="image/*"><br>
+          <input type="file" id="myfile" name = "image" accept="image/*" required><br>
         </p>
       </div>
       <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -398,7 +378,7 @@ try {
 
                           <p class = "button">
                             <input type = "submit" value = "登録" id = "submit" name = "submit">
-                            <input type = "button" value = "閉じる" id = "submit" onclick="location.href='/Home/Main.php'">
+                            <input type = "button" value = "閉じる" id = "submit" onclick="location.href='../Home/Main.php'">
                           </p>
                         </div>
                       </div>

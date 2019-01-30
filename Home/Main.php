@@ -1,21 +1,24 @@
 <?php
+    ini_set('display_errors', 0);
+
     session_start();
     // DBと接続
     include "../Setting/access_db.php";
     //仮のセッションID
-    $_SESSION['ID'] ='1';
+    //$_SESSION['ID'] ='1';
     $id = $_SESSION['ID'];
 
     /* タグが押されたかどうかの判断。押された場合そのタグのidが格納される */
     if(!empty($_POST['Tag'])){
         $tag = $_POST['Tag'];
-        $sql = 'SELECT surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" AND tag_id = "' .$tag. '"';
+        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" AND tag_id = "' .$tag. '"';
     }else{
-        $sql = 'SELECT surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" ';
+        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" ';
     }
 
     $MI_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
     foreach($MI_for_db as $MI){
+        $MI_manage_id[] = $MI['manage_id'];
         $MI_surname[] = $MI['surname'];
         $MI_name[] = $MI['name'];
         $MI_tag[] = $MI['tag_id'];
@@ -40,6 +43,7 @@
             <span class ="container">
                 <div class="main">
                   <?php
+                  if(isset($MI_manage_id[$i])){
                   $sqll = "SELECT image FROM info_a where manage_id = $i+1";
                   $stmtl = $dbh->prepare($sqll);
                   $stmtl->execute();
@@ -60,9 +64,10 @@
                   }
                   $cnt = $cnt + 1;
                   }
+                }
                   ?>
                   </div>
-                    <button class="button" type="submit" onclick="location.href='Reading.php'">
+                    <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $i + 1 ?>'">
                     <?php
                         //名前の表示
                         echo $MI_surname[$i] . $MI_name[$i];
@@ -73,7 +78,7 @@
         <?php endfor?>
 
 		<!-- 管理情報追加ボタン -->
-        <button class="create" onclick="location.href='./MIPage/Create_mi.php'">
+        <button  type ="button" class="create" onclick="location.href='../MIPage/Create_mi.php'">
               <img src="plus.png" class="plus">
     	</button>
 
