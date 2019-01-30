@@ -1,20 +1,10 @@
 <?php
 //ini_set('display_errors', 0);
 // 接続テスト用ファイル
-$dsn = 'mysql:host=localhost;dbname=rmdb';
-$user = 'Konaien';
-$pass = 'HtBM-923';
-
-try {
-  // MySQLへの接続
-  $dbh = new PDO($dsn, $user, $pass);
-  // 接続を使用する
-  $sth = $dbh->query('SELECT * from foo');
-  echo "<pre>";
-  foreach((array)$sth as $row) {
-    print_r($row);
-  }
-  echo "</pre>";
+session_start();
+include "../Setting/access_db.php";
+$ID = $_SESSION['ID'];
+$MID = $_GET['mid'];
 
   /*user_idの取得?*/
   $stmt0 = $dbh->prepare('SELECT user_id FROM user');
@@ -29,7 +19,7 @@ try {
   }
 
   //仮のmanage_id
-  $manage_id = 1;
+  $manage_id = $MID;
 
   //info_a&info_bを選択するSQL文
   $sql01 = "SELECT * FROM info_a where manage_id = $manage_id";
@@ -181,7 +171,7 @@ try {
       ':birth_day' => $birth_day, ':met_year'=>$met_year, ':met_month'=> $met_month, ':met_day' => $met_day, ':hobby'=> $hobby, ':feature'=>$feature, ':met_space' => $met_space ,
       ':free_space' => $free_space, ':id' => $manage_id);
       $stmt->execute($params);
-      header("location: ./Home/Main.php");
+      header("location: ../Home/Main.php");
     }
   }
 
@@ -198,16 +188,9 @@ try {
     $params = array(':id'=>$manage_id);
     // 削除するレコードのIDが入った変数をexecuteにセットしてSQLを実行
     $stmt3->execute($params);
-    header("location: ./Home/Main.php");
+    header("location: ../Home/Main.php");
   }
 
-  // 接続を閉じる
-  $sth = null;
-  $dbh = null;
-} catch (PDOException $e) { // PDOExceptionをキャッチする
-  print "エラー!: " . $e->getMessage() . "<br/gt;";
-  die();
-}
 ?>
 
 
@@ -258,8 +241,8 @@ try {
           現在登録されている画像
           <?php
           //画像用にSQL文を定義
-          $dbhh = new PDO($dsn, $user, $pass);
-          $sqll = "SELECT image FROM info_a where manage_id = 1";
+          $dbhh = new PDO($dsn, $user);
+          $sqll = "SELECT image FROM info_a where manage_id = $MID";
           $stmtl = $dbhh->prepare($sqll);
           $stmtl->execute();
           $row3 = $stmtl->fetch(PDO::FETCH_ASSOC);
@@ -806,7 +789,7 @@ try {
                       <p class = "button">
                         <input type = "submit" value = "更新" id = "submit" name = "submit">
                         <input type = "submit" value = "削除" id = "close" name = "delete">
-                        <input type = "button" onClick='history.back();' value = "キャンセル" id = "submit" onclick="location.href='/Home/Main.php'">
+                        <input type = "button" onClick='history.back();' value = "キャンセル" id = "submit" onclick="location.href='../Home/Main.php'">
                       </p>
                     </div>
                   </body>

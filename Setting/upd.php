@@ -8,7 +8,7 @@ $stmt = $dbh -> query($sql);
 foreach ($stmt as $row){
     $user_id = $row["user_id"]; // user_idの確保
 }
-
+$user_id = $ID;
 ?>
 <html>
 <?php

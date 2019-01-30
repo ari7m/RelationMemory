@@ -2,22 +2,12 @@
 ini_set('display_errors', 0);
 
 session_start();
+include "../Setting/access_db.php";
 $ID = $_SESSION['ID'];
+$MID = $_GET['mid'];
 // 接続テスト用ファイル
-$dsn = 'mysql:host=localhost;dbname=rmdb';
-$user = 'Konaien';
-$pass = 'HtBM-923';
 
-try {
-  // MySQLへの接続
-  $dbh = new PDO($dsn, $user, $pass);
-  // 接続を使用する
-  $sth = $dbh->query('SELECT * from foo');
-  echo "<pre>";
-  foreach((array)$sth as $row) {
-    print_r($row);
-  }
-  echo "</pre>";
+
   /*userDBからuser_idの最大値を取得？？*/
   $stmt0 = $dbh->prepare('SELECT user_id FROM user');
   $stmt0->execute();
@@ -44,8 +34,8 @@ try {
 
   $i = 1;
 
-  $sql = "SELECT * FROM info_a where manage_id = 2";
-  $sql2 = "SELECT * FROM info_b where manage_id = 2";
+  $sql = "SELECT * FROM info_a where manage_id = $MID";
+  $sql2 = "SELECT * FROM info_b where manage_id = $MID";
 
   // SQLステートメントを実行し、結果を変数に格納
   $stmt = $dbh->query($sql);
@@ -85,17 +75,6 @@ try {
           // 改行を入れる
           echo '<br>';
         }
-
-        // 接続を閉じる
-        $sth = null;
-        $dbh = null;
-
-        //print("DB接続できました！");
-
-      } catch (PDOException $e) { // PDOExceptionをキャッチする
-        print "エラー!: " . $e->getMessage() . "<br/gt;";
-        die();
-      }
       ?>
 
       <!DOCTYPE HTML>
@@ -142,8 +121,8 @@ try {
             <p class = "businesscardU">
               顔写真<br>
               <?php
-              $dbhh = new PDO($dsn, $user, $pass);
-              $sqll = "SELECT image FROM info_a where manage_id = 1";
+              $dbhh = new PDO($dsn, $user);
+              $sqll = "SELECT image FROM info_a where manage_id = $MID";
               $stmtl = $dbhh->prepare($sqll);
               $stmtl->execute();
               $row3 = $stmtl->fetch(PDO::FETCH_ASSOC);
@@ -169,7 +148,14 @@ try {
                 </p>
 
                 <p class ="sex">
-                  性　　別　　　<?php echo $row['gender'] ?>
+                  性　　別　　　<?php
+                  if($row['gender'] == 'o'){
+                    echo 'その他';
+                  } else if($row['gender'] == 'f'){
+                    echo '女性';
+                  } else if($row['gender'] == 'm'){
+                    echo '男性';
+                  }?>
                 </p>
 
                 <p class = "birthday">
@@ -189,7 +175,7 @@ try {
 
                 <p class = "relation">
                   関　　係　　　<?php
-                  $dbh = new PDO($dsn, $user, $pass);
+                  $dbh = new PDO($dsn, $user);
                   $k = $row['tag_id'] - 1 ;
                   $stmt4 = $dbh->prepare('SELECT tag_name FROM tag ');
                   $stmt4->execute();
@@ -228,7 +214,7 @@ try {
 
             <p class = "button">
               <form action="Reading.php" method="post">
-                <input type = "button" value = "編集" id = "submit" onClick="location.href='Edit_mi.php'">
+                <input type = "button" value = "編集" id = "submit" onClick="location.href='Edit_mi.php?mid=<?php echo $MID ?>'">
                 <!--<input type = "submit" value = "削除" id = "submit" name = "delete">-->
                 <input type = "button" onClick='history.back();' value = "閉じる" id = "submit" onClick="location.href='../Template.php'">
               </form>
