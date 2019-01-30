@@ -23,7 +23,7 @@
         $link = new PDO($dsn, 'root');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        /*$sql = 'insert into rmdb.user values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
+        $sql = 'insert into rmdb.user values (:ID, :name, :pwd, :q1, :ans1, :q2, :ans2, :q3, :ans3)';
         $do = $link -> prepare($sql);
         $param = array(
             ':name' => $name,
@@ -36,15 +36,12 @@
             ':ans2' => $ans2,
             ':ans3' => $ans3
         );
-        $do -> execute($param);*/
+        $do -> execute($param);
         // 初期タグの作成
         $sql = 'insert into rmdb.tag values ("'. $ID. '", 1, "DefaultTag")';
         var_dump($sql);
         $do = $link -> query($sql);
-        /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
-        $link = new PDO($dsn, 'root');
-        $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
-        $do = $link -> query($sql);*/
+        // 自動遷移(便利だなぁ)
         http_response_code(301);
         header('Location: ../Template.html');
     ?>
