@@ -42,7 +42,7 @@
     	<?php for($i = 0; $i < count($MI_for_db); $i++):?>
             <span class ="container">
                 <div class="main">
-                  <image src= 
+                 
                   <?php
                   $sqll = "SELECT image FROM info_a where user_id = $id ";
                   $stmtl = $dbh->prepare($sqll);
@@ -57,11 +57,11 @@
                     $enc_img = base64_encode($pic);
                     $imginfo = getimagesize('data:application/octet-stream;base64,' . $enc_img);
                     if($cnt == $i){
-                    echo '<img src="data:' . $imginfo['mime'] . ';base64,' . $enc_img . ' "width=56px" height="56px"  />';
+                    echo '<img src="data:' . $imginfo['mime'] . ';base64,' . $enc_img . ' "width=56px" height="56px" class="img" />';
                     }
                   $cnt = $cnt + 1;
                   }
-                  ?> class="image">
+                  ?>
                   
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $MI_manage_id[$i]?>'">
                     <?php
