@@ -11,9 +11,9 @@
     /* タグが押されたかどうかの判断。押された場合そのタグのidが格納される */
     if(!empty($_POST['Tag'])){
         $tag = $_POST['Tag'];
-        $sql = "SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = $id AND tag_id = $tag";
+        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" AND tag_id = "' .$tag. '"';
     }else{
-        $sql = "SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = $id";
+        $sql = 'SELECT manage_id,surname, name, tag_id, image FROM info_a WHERE user_id = "' .$id.'" ';
     }
 
     $MI_for_db = $dbh -> query($sql) -> fetchall(PDO::FETCH_ASSOC);
@@ -25,7 +25,7 @@
         $MI_image[] = $MI['image'];
 
         //$MI_array = count($MI_for_db); // ユーザがもつ管理情報の数を格納
-
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -61,6 +61,7 @@
                   }
                   $cnt = $cnt + 1;
                   }
+
                   ?>
                   </div>
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $i + 1 ?>'">
