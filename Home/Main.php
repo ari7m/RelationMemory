@@ -35,6 +35,7 @@
     <body>
         <form action ='Main.php' method='post'>
         <!-- 管理情報を表示 -->
+        <?php echo 'hogeeeeeeee!!!!!!!!!!!!!!!!!';?>
     	<?php for($i = 0; $i < count($MI_for_db); $i++):?>
             <span class ="container">
                 <div class="main">
