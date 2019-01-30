@@ -42,7 +42,7 @@
     	<?php for($i = 0; $i < count($MI_for_db); $i++):?>
             <span class ="container">
                 <div class="main">
-                 
+                 /*
                   <?php
                   $sqll = "SELECT image FROM info_a where user_id = $id ";
                   $stmtl = $dbh->prepare($sqll);
@@ -62,7 +62,7 @@
                   $cnt = $cnt + 1;
                   }
                   ?>
-                  
+                  */
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $MI_manage_id[$i]?>'">
                     <?php
                         //名前の表示
