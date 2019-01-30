@@ -1,3 +1,29 @@
+<?php
+    session_start();
+    
+    // DBと接続
+    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'rmdb');
+    define('DB_USER', 'wolf');
+    define('DB_PASSWORD', 'password');
+    try {
+         $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, $options);
+         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+         echo $e->getMessage();
+         exit;
+    }
+    
+    $id = $_SESSION['id'];
+    echo $id;
+    if(isset($_GET['logout']) === true){
+        //pirnt_r($_GET);
+        header('location: logout.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head id = "site_header">
@@ -5,7 +31,7 @@
         <link rel = "stylesheet" type = "text/css" href = "../Home/header.css">
         <script src = "../Home/header.js"></script>
 
-<div class="container"> <!--コンテナ用divで囲む-->
+        <div class="container"> <!--コンテナ用divで囲む-->
         <!-- アイコンをクリックするとメインページにジャンプする処理 -->
         <div class = "header_place">
             <p>
@@ -52,12 +78,17 @@
           </label>
           <input type="checkbox" id="menu_bar01" class="accordion"  hidden/>
           <ul id="links01">
-              <li><a href="../Setting/ Setting_user.html" target="frame3" >ユーザ情報の設定</a></li>
-              <li><a href="../Setting/Setting_tag.html" target="frame3">登録情報の設定</a></li>
-              <li><a href="../Start/Start.html" onclick="return disp();" target="_top">ログアウト</a></li>
+              <form action="Template.html" method="get">
+                  <li><a href="../Setting/ Setting_user.php" target="frame3" >ユーザ情報の設定</a></li>
+                  <li><a href="../Setting/Setting_tag.php" target="frame3">登録情報の設定</a></li>
+                  <li>
+                      <input type='hidden' onclick="return disp();" target="_top" name="logout" value="logout">
+                      <a href="logout.php">ログアウト</a>
+                  </li>
+              </form>
           </ul>
         </div>
-</div>
+        </div>
     </head>
     <body></body>
 </html>
