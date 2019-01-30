@@ -39,6 +39,7 @@
         $do -> execute($param);
         // 初期タグの作成
         $sql = 'insert into rmdb.tag values ("'. $ID. ', 1, "DefaultTag")';
+        var_dump($sql);
         $do = $link -> query($sql);
         /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
