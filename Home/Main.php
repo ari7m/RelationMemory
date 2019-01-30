@@ -39,7 +39,7 @@
             <span class ="container">
                 <div class="main">
                     <image src=<?php $MI_image[$i];?>, class="image">
-                    <button class="button" type="submit" onclick="location.href='Reading.html'">
+                    <button class="button" type="submit" onclick="location.href='Reading.php'">
                     <?php
                         //名前の表示
                         echo $MI_surname[$i] . $MI_name[$i];
@@ -50,7 +50,7 @@
         <?php endfor?>
 		
 		<!-- 管理情報追加ボタン -->
-        <button class="create" onclick="location.href='/MIPage/Create_mi.html'">
+        <button class="create" onclick="location.href='/MIPage/Create_mi.php'">
               <img src="plus.png" class="plus">
     	</button>
 		
@@ -78,7 +78,7 @@
         	</li>
         	
         	<!-- 全て以外のタグ -->
-            <?php for($i = 0; $i < count($MI_tag_name); $i++): ?>
+          <?php for($i = 0; $i < count($MI_tag_name); $i++): ?>
         	<li id="alltag">
         	    <label>
         	    <input type="submit" style="display:none" name="Tag" value=<?php echo $MI_tag_id[$i]?>>
