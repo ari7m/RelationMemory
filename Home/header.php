@@ -2,6 +2,7 @@
     session_start();
     
     // DBと接続
+    /*
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'rmdb');
@@ -14,8 +15,11 @@
          echo $e->getMessage();
          exit();
     }
-    
-    $id = $_SESSION['id'];
+    */
+
+    include "../Setting/access_db.php";
+
+    $id = $_SESSION['ID'];
     echo $id;
     if(isset($_GET['logout']) === true){
         //pirnt_r($_GET);
