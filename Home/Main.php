@@ -50,7 +50,7 @@
         <?php endfor?>
 		
 		<!-- 管理情報追加ボタン -->
-        <button class="create" onclick="location.href='/MIPage/Create_mi.php'">
+        <button class="create" onclick="location.href='../MIPage/Create_mi.php'">
               <img src="plus.png" class="plus">
     	</button>
 		
