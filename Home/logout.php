@@ -20,6 +20,7 @@ session_start();
     
     echo 'ログアウト完了' . '僕のことは忘れないでね';
     
-    // 一瞬でページ切り替わるやつ実装する
-
+    // 一瞬でページ切り替わる
+    http_response_code(301);
+    header('Location: Start.php');
 ?>

@@ -12,7 +12,7 @@
          $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
          echo $e->getMessage();
-         exit;
+         exit();
     }
     
     $id = $_SESSION['id'];
