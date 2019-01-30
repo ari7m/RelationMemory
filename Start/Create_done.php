@@ -38,6 +38,9 @@
             ':ans3' => $answer3
         );
         $do -> execute($param);
+        // 初期タグの作成
+        $sql = 'insert into rmdb.tag values ("'. $ID. ', 1, "Default")';
+        $do = $link -> query($sql);
         /*$dsn = 'mysql:host=localhost; dbname=rmdb; charset=utf8';
         $link = new PDO($dsn, 'root');
         $sql = 'insert into rmdb.user * values ('. $name. ', '. $ID. ', '. $pwd. ', '. $q1. ', '. $q2. ', '. $q3. ', '. $ans1. ', '. $ans2. ', '. $ans3. ')';
