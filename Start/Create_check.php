@@ -17,9 +17,9 @@
         $_SESSION['q1'] = $_POST['q1'];
         $_SESSION['q2'] = $_POST['q2'];
         $_SESSION['q3'] = $_POST['q3'];
-        $_SESSION['ans1'] = $_POST['answer1'];
-        $_SESSION['ans2'] = $_POST['answer2'];
-        $_SESSION['ans3'] = $_POST['answer3'];
+        $_SESSION['ans1'] = $_POST['ans1'];
+        $_SESSION['ans2'] = $_POST['ans2'];
+        $_SESSION['ans3'] = $_POST['ans3'];
     ?>
 </head>
 <body>
@@ -90,9 +90,9 @@
         <div align = "left" style="float:left;width:45%;">
             回答 <br /><br / />
             <?php
-                echo $_POST['answer1'], '<br /><br />';
-                echo $_POST['answer2'], '<br /><br />';
-                echo $_POST['answer3'], '<br /><br />';
+                echo $_POST['ans1'], '<br /><br />';
+                echo $_POST['ans2'], '<br /><br />';
+                echo $_POST['ans3'], '<br /><br />';
              ?>
             <!--ポチ　<br /><br />
             たけし <br /><br />
