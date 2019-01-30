@@ -3,7 +3,7 @@ session_start();
 /* DBと接続
 $dsn = "mysql:host=localhost; dbname=rmdb; charset=utf8";
 $link = new PDO($dsn, "wolf", "password");
-*/
+
 $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8'");
 
 define('DB_HOST', 'localhost');
@@ -18,6 +18,8 @@ try {
      echo $e->getMessage();
      exit;
 }
+*/
+include "../Setting/access_db.php";
 
 // ログイン処理
 // 「ログインボタン」が押されたとき
@@ -31,7 +33,7 @@ if(isset($_POST['login'])){
     // dbから得られたログイン情報を格納
     $result = $dbh -> query($sql) -> fetch(PDO::FETCH_ASSOC);
     if($result != null){
-        $_SESSION["id"] = $user_id;
+        $_SESSION["ID"] = $user_id;
         header("Location: ../Template.html");
         exit;
     }
