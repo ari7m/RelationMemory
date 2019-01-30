@@ -191,12 +191,9 @@
 		//var_dump($gender_MI);
 		//すべての検索から得られたmanage_idを入れている配列の重複している値のみをSESSIONでSearch_resultに渡す。
 		$merge_MI = array_intersect($met_MI, $age_MI, $birth_MI, $gender_MI);
-		foreach($merge_MI as $MI){
-			echo $MI;
-			echo '<br>';
-		}
-		$_SESSION['manage_id'] = $MI;
 
+		//var_dump($merge_MI);
+		$_SESSION['manage_id'] = $merge_MI;
 	}
 											
 ?>
