@@ -20,14 +20,14 @@
     include "../Setting/access_db.php";
 
     $id = $_SESSION['ID'];
-    echo $id;
-    /*
+    //echo $id;
+    
     if(isset($_GET['logout']) === true){
         //pirnt_r($_GET);
         header('location: logout.php');
         exit();
     }
-    */
+    
 ?>
 
 <!DOCTYPE html>
