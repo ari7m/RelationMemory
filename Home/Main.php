@@ -58,13 +58,14 @@
                     $imginfo = getimagesize('data:application/octet-stream;base64,' . $enc_img);
                     if($cnt == $i){
                     echo '<img src="data:' . $imginfo['mime'] . ';base64,' . $enc_img . ' "width=56px" height="56px"  />';
-                  }
+                    }
                   $cnt = $cnt + 1;
                   }
-
                   ?>
                   </div>
-                    <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $i + 1 ?>'">
+
+
+                    <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $MI_manage_id[$i]?>'">
                     <?php
                         //名前の表示
                         echo $MI_surname[$i] . $MI_name[$i];
