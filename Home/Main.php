@@ -7,6 +7,7 @@
     //仮のセッションID
     //$_SESSION['ID'] ='1';
     $id = $_SESSION['ID'];
+    echo $id;
 
     /* タグが押されたかどうかの判断。押された場合そのタグのidが格納される */
     if(!empty($_POST['Tag'])){
@@ -42,7 +43,7 @@
     	<?php for($i = 0; $i < count($MI_for_db); $i++):?>
             <span class ="container">
                 <div class="main">
-                 /*
+
                   <?php
                   $sqll = "SELECT image FROM info_a where user_id = $id ";
                   $stmtl = $dbh->prepare($sqll);
@@ -53,16 +54,21 @@
                     $DB_PIC_ARRAY[] = $row3['image'];
                   }
                   $cnt = 0;
+                  ?>
+                  <div class = "image">
+                    <?php
                   foreach($DB_PIC_ARRAY as $pic){
                     $enc_img = base64_encode($pic);
                     $imginfo = getimagesize('data:application/octet-stream;base64,' . $enc_img);
                     if($cnt == $i){
-                    echo '<img src="data:' . $imginfo['mime'] . ';base64,' . $enc_img . ' "width=56px" height="56px" class="img" />';
+                    echo '<img src="data:' . $imginfo['mime'] . ';base64,' . $enc_img . ' "width=56px" height="56px"  />';
                     }
                   $cnt = $cnt + 1;
                   }
                   ?>
-                  */
+                  </div>
+
+
                     <button type = "button" class="button" type="submit" onclick="location.href='../MIPage/Reading.php?mid=<?php echo $MI_manage_id[$i]?>'">
                     <?php
                         //名前の表示

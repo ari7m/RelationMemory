@@ -1,34 +1,36 @@
 <?php
-ini_set('display_errors', 0);
-
 session_start();
 include "../Setting/access_db.php";
+//$ID = '1';
 $ID = $_SESSION['ID'];
+echo $ID;
 // 接続テスト用ファイル
 ini_set('display_errors', 0);
 
-  $stmt0 = $dbh->prepare('SELECT user_id FROM user');
-  $stmt0->execute();
-  $user_id = $stmt0->fetchAll(PDO::FETCH_ASSOC);
-  $j = 0;
-  while(true){
-    if( empty( $user_id[$j]['user_id'] )){
-      break;
-    }
-    $j = $j + 1;
+/*user_idの取得?*/
+$stmt0 = $dbh->prepare('SELECT user_id FROM user');
+$stmt0->execute();
+$user_id = $stmt0->fetchAll(PDO::FETCH_ASSOC);
+$j = 0;
+while(true){
+  if( empty( $user_id[$j]['user_id'] )){
+    break;
   }
+  $j = $j + 1;
+}
 
   //manage_id空の値を取得
-  $stmt1 = $dbh->prepare('SELECT manage_id FROM info_a');
+  $stmt1 = $dbh->prepare("SELECT manage_id FROM info_a WHERE user_id = $ID");
   $stmt1->execute();
   $manage_id = $stmt1->fetchAll(PDO::FETCH_ASSOC);
   $i = 0;
   while(true){
-    if( empty( $manage_id[$i]['manage_id'] )){
+    if(empty( $manage_id[$i]['manage_id'] )){
       break;
     }
     $i = $i + 1;
   }
+  //echo $i + 1;
 
   //登録ボタンが押下された場合の処理
   if(isset($_POST['submit'])) {
@@ -67,7 +69,6 @@ ini_set('display_errors', 0);
       :birth_day,
       :image
     );
-    /*info_bの更新InsertSQL*/
     REPLACE INTO info_b(
       user_id,
       manage_id,
@@ -111,11 +112,11 @@ ini_set('display_errors', 0);
     $feature = $_POST["feature"];
     $met_space = $_POST["met_space"];
     $free_space = $_POST["free_space"];
-    $birthday = $birth_year .$birth_month .$birth_day;
+    //$birthday = $birth_year .$birth_month .$birth_day;
 
     //DBに格納？？
     $stmt=$dbh->prepare($sql);
-    $stmt->bindValue(':user_id', $user_id[0]['user_id'], PDO::PARAM_INT);
+    $stmt->bindValue(':user_id', $ID);
     //$stmt->bindValue(':user_id', $ID, PDO::PARAM_INT);
     $stmt->bindValue(':manage_id', $manage_id, PDO::PARAM_INT);
     $stmt->bindParam(':surname', $surname, PDO::PARAM_STR);
@@ -131,7 +132,7 @@ ini_set('display_errors', 0);
     $stmt->bindValue(':birth_month', $birth_month);
     $stmt->bindValue(':birth_day', $birth_day);
     $stmt->bindValue(':image', $img);
-    $stmt->bindValue(':user_id2', $user_id[0]['user_id'], PDO::PARAM_INT);
+    $stmt->bindValue(':user_id2', $ID);
     //$stmt->bindValue(':user_id2', $ID, PDO::PARAM_INT);
     $stmt->bindValue(':manage_id2', $manage_id, PDO::PARAM_INT);
     $stmt->bindParam(':blood_type', $blood_type, PDO::PARAM_STR);
@@ -142,7 +143,6 @@ ini_set('display_errors', 0);
     //実行
     $stmt->execute();
     header('location: ../Home/Main.php');
-    exit;
   }
 
 ?>
@@ -290,8 +290,8 @@ ini_set('display_errors', 0);
                         関　　係　　
                         <select name = "tag_id">
                           <?php
-                          $dbh = new PDO($dsn, $user, $pass);
-                          $stmt3 = $dbh->prepare("SELECT tag_name FROM tag WHERE user_id = $ID");
+                          $dbh2 = new PDO($dsn, $user, $pass);
+                          $stmt3 = $dbh2->prepare("SELECT tag_name FROM tag WHERE user_id = $ID");
                           $stmt3->execute();
                           $tag_name = $stmt3->fetchAll(PDO::FETCH_ASSOC);
                           $k = 0;

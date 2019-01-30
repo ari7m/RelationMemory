@@ -4,6 +4,7 @@
 session_start();
 include "../Setting/access_db.php";
 $ID = $_SESSION['ID'];
+echo $ID;
 $MID = $_GET['mid'];
 
   /*user_idの取得?*/
@@ -22,8 +23,8 @@ $MID = $_GET['mid'];
   $manage_id = $MID;
 
   //info_a&info_bを選択するSQL文
-  $sql01 = "SELECT * FROM info_a where manage_id = $manage_id";
-  $sql02 = "SELECT * FROM info_b where manage_id = $manage_id";
+  $sql01 = "SELECT * FROM info_a where manage_id = $manage_id AND user_id = $ID";
+  $sql02 = "SELECT * FROM info_b where manage_id = $manage_id AND user_id = $ID";
 
   // SQLステートメントを実行し、結果を変数に格納
   $stmt01 = $dbh->query($sql01);
@@ -68,8 +69,7 @@ $MID = $_GET['mid'];
       birth_month = :birth_month,
       birth_day = :birth_day,
       image = :image
-      where manage_id = :id;
-
+      where manage_id = :id AND user_id = :user_id;
       /*info_bの更新SQL*/
       UPDATE info_b SET
       user_id = :user_id2,
@@ -79,7 +79,7 @@ $MID = $_GET['mid'];
       hobby = :hobby,
       met_space = :met_space,
       free_space = :free_space
-      where manage_id = :id";
+      where manage_id = :id AND user_id = :user_id";
 
       //画像の処理
       $img_name = $_FILES['image']['name'];
@@ -108,12 +108,12 @@ $MID = $_GET['mid'];
 
       //
       $stmt=$dbh->prepare($sql);
-      $params = array(':user_id' => $user_id[0]['user_id'],':user_id2' => $user_id[0]['user_id'], ':manage_id'=> $manage_id, ':manage_id2'=> $manage_id,':name' => $name, ':surname' => $surname,
+      $params = array(':user_id' => $ID,':user_id2' => $ID, ':manage_id'=> $manage_id, ':manage_id2'=> $manage_id,':name' => $name, ':surname' => $surname,
       ':name_ruby' =>$name_ruby,':surname_ruby'=>$surname_ruby,':gender'=>$gender, ':tag_id' => $tag_id , ':blood_type'=>$blood_type, ':birth_year'=>$birth_year, ':birth_month'=> $birth_month,
       ':birth_day' => $birth_day, ':met_year'=>$met_year, ':met_month'=> $met_month, ':met_day' => $met_day, ':image' => $img ,':hobby'=> $hobby, ':feature'=>$feature, ':met_space' => $met_space ,
       ':free_space' => $free_space, ':id' => $manage_id);
       $stmt->execute($params);
-      header("location: ./Home/Main.php");
+      header("location: ../Home/Main.php");
     } else {
 
       //画像を更新しない場合
@@ -133,7 +133,7 @@ $MID = $_GET['mid'];
       birth_year = :birth_year,
       birth_month = :birth_month,
       birth_day = :birth_day
-      where manage_id = :id;
+      where manage_id = :id AND user_id = :user_id;
       /*info_bの更新SQL*/
       UPDATE info_b SET
       user_id = :user_id2,
@@ -143,7 +143,7 @@ $MID = $_GET['mid'];
       hobby = :hobby,
       met_space = :met_space,
       free_space = :free_space
-      where manage_id = :id";
+      where manage_id = :id AND user_id = :user_id";
 
       //変数定義
       $surname = $_POST["surname"];
@@ -166,7 +166,7 @@ $MID = $_GET['mid'];
 
       //
       $stmt=$dbh->prepare($sql);
-      $params = array(':user_id' => $user_id[0]['user_id'],':user_id2' => $user_id[0]['user_id'], ':manage_id'=> $manage_id, ':manage_id2'=> $manage_id,':name' => $name, ':surname' => $surname,
+      $params = array(':user_id' => $ID,':user_id2' => $ID, ':manage_id'=> $manage_id, ':manage_id2'=> $manage_id,':name' => $name, ':surname' => $surname,
       ':name_ruby' =>$name_ruby,':surname_ruby'=>$surname_ruby,':gender'=>$gender, ':tag_id' => $tag_id , ':blood_type'=>$blood_type, ':birth_year'=>$birth_year, ':birth_month'=> $birth_month,
       ':birth_day' => $birth_day, ':met_year'=>$met_year, ':met_month'=> $met_month, ':met_day' => $met_day, ':hobby'=> $hobby, ':feature'=>$feature, ':met_space' => $met_space ,
       ':free_space' => $free_space, ':id' => $manage_id);
@@ -242,7 +242,7 @@ $MID = $_GET['mid'];
           <?php
           //画像用にSQL文を定義
           $dbhh = new PDO($dsn, $user);
-          $sqll = "SELECT image FROM info_a where manage_id = $MID";
+          $sqll = "SELECT image FROM info_a where manage_id = $MID AND user_id = $ID";
           $stmtl = $dbhh->prepare($sqll);
           $stmtl->execute();
           $row3 = $stmtl->fetch(PDO::FETCH_ASSOC);
@@ -306,20 +306,20 @@ $MID = $_GET['mid'];
 
         <p class ="sex">
           性　　別　　
-          <?php if($row['gender'] == "女"){ ?>
-            <input type = "radio" name = "gender" value = "女" checked="checked">女性
+          <?php if($row['gender'] == "f"){ ?>
+            <input type = "radio" name = "gender" value = "f" checked="checked">女性
           <?php } else{ ?>
-            <input type = "radio" name = "gender" value = "女">女性
+            <input type = "radio" name = "gender" value = "f">女性
           <?php }
-          if($row['gender'] == "男"){ ?>
-            <input type = "radio" name = "gender" value = "女" checked="checked">男性
+          if($row['gender'] == "m"){ ?>
+            <input type = "radio" name = "gender" value = "m" checked="checked">男性
           <?php } else{ ?>
-            <input type = "radio" name = "gender" value = "男">男性
+            <input type = "radio" name = "gender" value = "m">男性
           <?php }
-          if($row['gender'] == "他"){ ?>
-            <input type = "radio" name = "gender" value = "他" checked="checked">その他
+          if($row['gender'] == "o"){ ?>
+            <input type = "radio" name = "gender" value = "o" checked="checked">その他
           <?php } else{ ?>
-            <input type = "radio" name = "gender" value = "他">その他
+            <input type = "radio" name = "gender" value = "o">その他
           <?php } ?><br>
         </p>
 
@@ -350,7 +350,7 @@ $MID = $_GET['mid'];
               <INPUT type="radio" name="blood_type" value="O">O型
             <?php }
 
-          if($row2['blood_type'] == "other"){ ?>　
+          if($row2['blood_type'] == "ot"){ ?>　
             <INPUT type="radio" name="blood_type" value="other" checked = "checked">不明
             <?php } else{ ?>
               <INPUT type="radio" name="blood_type" value="other">不明

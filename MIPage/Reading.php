@@ -4,6 +4,7 @@ ini_set('display_errors', 0);
 session_start();
 include "../Setting/access_db.php";
 $ID = $_SESSION['ID'];
+echo $ID;
 $MID = $_GET['mid'];
 // 接続テスト用ファイル
 
@@ -34,8 +35,8 @@ $MID = $_GET['mid'];
 
   $i = 1;
 
-  $sql = "SELECT * FROM info_a where manage_id = $MID";
-  $sql2 = "SELECT * FROM info_b where manage_id = $MID";
+  $sql = "SELECT * FROM info_a where manage_id = $MID AND user_id = $ID ";
+  $sql2 = "SELECT * FROM info_b where manage_id = $MID AND user_id = $ID";
 
   // SQLステートメントを実行し、結果を変数に格納
   $stmt = $dbh->query($sql);
@@ -51,7 +52,7 @@ $MID = $_GET['mid'];
 
   //年齢計算
   if($row['birth_year']==0){
-    $by = 1990;}else{
+    $by = date('Y');}else{
       $by =$row['birth_year'];
     }
   if($row['birth_month'] < 10){
@@ -122,7 +123,7 @@ $MID = $_GET['mid'];
               顔写真<br>
               <?php
               $dbhh = new PDO($dsn, $user);
-              $sqll = "SELECT image FROM info_a where manage_id = $MID";
+              $sqll = "SELECT image FROM info_a where manage_id = $MID AND user_id = $ID";
               $stmtl = $dbhh->prepare($sqll);
               $stmtl->execute();
               $row3 = $stmtl->fetch(PDO::FETCH_ASSOC);
