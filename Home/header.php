@@ -114,7 +114,7 @@
 
         <!-- 共有をクリックで共有モジュールへジャンプ -->
         <div class="header_place buttonContainer">
-          <a class="header_place button" href="../Template.html"  target="_top">Share</a>
+          <a class="header_place button" href="../share/share.php"  target="_top">Share</a>
         </div>
 
         <!-- 設定。歯車マークにマウスカーソルを合わせるまたはクリックで設定メニューを表示 -->
