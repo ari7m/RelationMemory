@@ -14,6 +14,7 @@ foreach ($stmt as $row){
 $user_id = $row["user_id"];// user_idの確保
 $cnt = $row["manage_id"];
 }
+var_dump($cnt);
 $cnt++;
 $check = 0;
 
