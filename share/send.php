@@ -14,7 +14,7 @@ foreach ($stmt as $row){
 $user_id = $row["user_id"];// user_idの確保
 $cnt = $row["manage_id"];
 }
-var_dump($cnt);
+var_dump($user_id);
 $cnt++;
 $check = 0;
 
@@ -48,6 +48,6 @@ else $result = $check.'個の管理情報を'.$receve_id.'に送信しました�
    <?php echo $result;   ?></h3>
    <center>
    <br><br>  <br><br>  <br><br>
- <input type = "button" value = "ホームに戻る"  onclick = " location.href = '../Home/Main.html'" id = "button">
+ <input type = "button" value = "ホームに戻る"  onclick = " location.href = '../Template.html'" id = "button">
   </center>
 </html>
