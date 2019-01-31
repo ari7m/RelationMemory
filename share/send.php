@@ -7,8 +7,8 @@
 
 <?php
   include "access_db.php"; // データベース取得
-  $sql = "select * from info_a where user_id = 'abc123' "; 
-  $stmt = $dbh -> query($sql);	   
+  $sql = "select * from info_a where user_id = '". $ID. "' ";
+  $stmt = $dbh -> query($sql);
 
 foreach ($stmt as $row){
 $user_id = $row["user_id"];// user_idの確保
