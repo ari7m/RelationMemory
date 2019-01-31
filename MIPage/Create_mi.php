@@ -193,7 +193,7 @@ while(true){
           顔写真<br>
           <!--画像登録フォーム-->
           <img id="img1" style="width:200px;height:200px;" />
-          <input type="file" id="myfile" name = "image" accept="image/*" required><br>
+          <input type="file" id="myfile" name = "image" accept="image/*"/><br>
         </p>
       </div>
       <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -291,7 +291,7 @@ while(true){
                         <select name = "tag_id">
                           <?php
                           $dbh2 = new PDO($dsn, $user, $pass);
-                          $stmt3 = $dbh2->prepare("SELECT tag_name FROM tag WHERE user_id = $ID");
+                          $stmt3 = $dbh2->prepare('SELECT tag_name FROM tag WHERE user_id = "'. $ID. '"');
                           $stmt3->execute();
                           $tag_name = $stmt3->fetchAll(PDO::FETCH_ASSOC);
                           $k = 0;
