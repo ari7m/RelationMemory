@@ -20,8 +20,8 @@ while(true){
 }
 
   //manage_id空の値を取得
-  $stmt1 = $dbh->prepare("SELECT manage_id FROM info_a WHERE user_id = $ID");
-  $stmt1->execute();
+  $stmt1 = $dbh->prepare('SELECT manage_id FROM info_a WHERE user_id = "'. $ID. '"');
+  $stmt1 -> execute();
   $manage_id = $stmt1->fetchAll(PDO::FETCH_ASSOC);
   $i = 0;
   while(true){
