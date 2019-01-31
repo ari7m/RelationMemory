@@ -5,7 +5,7 @@ include "../Setting/access_db.php";
 $ID = $_SESSION['ID'];
 echo $ID;
 // 接続テスト用ファイル
-ini_set('display_errors', 0);
+//ini_set('display_errors', 0);
 
 /*user_idの取得?*/
 $stmt0 = $dbh->prepare('SELECT user_id FROM user');
